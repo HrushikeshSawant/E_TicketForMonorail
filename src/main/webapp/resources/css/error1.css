@@ -1,0 +1,17 @@
+@charset "ISO-8859-1";
+
+.e1{
+	display: block; 
+	font-weight: bold;
+	margin-top: 5px;
+	font-size: 13px;
+	color: red
+}
+
+.e2{
+	display: block;
+	font-weight: bold;
+	margin-top: 30px;
+	font-size: 13px;
+	text-align: center
+}

@@ -1,0 +1,173 @@
+@charset "ISO-8859-1";
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+body{
+	background: linear-gradient(244.82deg, #2AA9FF, #3FFFEC) no-repeat;
+	min-height: 100vh;
+}
+
+header{
+	display: flex;
+	top: 0;
+	left: 0;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 3.5%;
+	background: #262626;
+	margin-top: 1%;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 17px;
+	width: 100%;
+}
+
+img{
+	background: none ;
+	height: 50px;
+}
+
+.dropdown{
+	position: relative;
+	background-color: #262626;
+	cursor: pointer;
+}
+
+.bar{
+	background: #FFF;
+	width: 200px;
+	position: absolute;
+	z-index: 1;
+	display: none;
+	left: -30px;
+	text-align: center;
+}
+
+.bar  .blank{
+	background: #262626; 
+	padding: 7.5px;
+}
+
+.bar a{
+	display: block;
+	padding: 15px 20px;
+	color: #000;
+	font-size: 15px;
+	text-decoration: none;
+}
+
+.dropdown:hover .bar{
+	display: block;
+	background: #FFF;
+	border-radius: 0 0 15px 15px;
+	border-top-color: #000;
+}
+
+a:hover{
+	color: #ed7014;
+}
+
+.container{
+	min-height: 20vh;
+	justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	text-align: center;
+	align-item: center
+}
+
+.head{
+	font-weight: bold;
+	font-size: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 2%;	
+}
+
+.link{
+	display: block;
+	font-size: 17px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	color: #000;
+}
+
+.container5{
+	min-height: 20vh;
+	background: #000;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: 35%;
+}
+
+.content5{
+	padding: 30px;
+	font-weight: bold;
+	font-size: 15px;
+	text-align: center;	
+	color: #FFF;
+}
+
+.container5{
+	min-height: 20vh;
+	background: #000;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.content5{
+	padding: 30px;
+	font-weight: bold;
+	font-size: 15px;
+	text-align: center;	
+	color: #FFF;
+}
+
+@media (max-width: 960px) {	
+	p{
+		font-size: 10px;
+	}
+	
+	.dropdown{
+		font-size: 10px;
+	}
+
+	.bar{
+		width: 100px;
+		left: -5px;
+	}
+	
+	.bar  .blank{
+		background: #262626; 
+		padding: 10px 5px;
+	}
+
+	.bar a{
+		padding: 10px 1px;
+		color: #000;
+		font-size: 10px;
+	}
+	
+	.bar a:hover{
+		color: #ed7014;
+	}
+	
+	.head{
+		padding: 4%;	
+	}
+
+	.container5{
+		margin-top: 90%;
+	}
+
+}
