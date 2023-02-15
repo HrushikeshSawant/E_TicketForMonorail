@@ -11,7 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import bean.User;
-import connection.Setup;
+import dao.RegisterDao;
 
 /**
  * Servlet implementation class Register
@@ -35,6 +35,8 @@ public class Register extends HttpServlet {
 			log.info("Register Getters and Setters Called");
 			User user = new User(name, email, mobile_no, password, c_password, h_password);
 			
+			RegisterDao dao = new RegisterDao();
+			dao.verifyAndInsetNewUser(user);
 		}
 		catch(Throwable e)
 		{

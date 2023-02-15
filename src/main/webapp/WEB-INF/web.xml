@@ -24,24 +24,4 @@
 		<servlet-name>Connection</servlet-name>
 		<url-pattern>/Connection</url-pattern>
 	</servlet-mapping>
-	<context-param>
-		<param-name>driver</param-name>
-		<param-value>com.mysql.cj.jdbc.Driver</param-value>
-	</context-param>
-	<context-param>
-		<param-name>url</param-name>
-		<param-value>jdbc:mysql://localhost:3306/</param-value>
-	</context-param>
-	<context-param>
-		<param-name>databaseName</param-name>
-		<param-value>e_ticketformonorail</param-value>
-	</context-param>
-	<context-param>
-		<param-name>username</param-name>
-		<param-value>root</param-value>
-	</context-param>
-	<context-param>
-		<param-name>password</param-name>
-		<param-value>hrushi</param-value>
-	</context-param>
 </web-app>
