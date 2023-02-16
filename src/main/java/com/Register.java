@@ -25,6 +25,7 @@ public class Register extends HttpServlet {
 		try
 		{
 			log.info("Getting User values from UI");
+			String result;
 			String name = request.getParameter("nameInput");
 			String email = request.getParameter("emailInput");
 			String mobile_no = request.getParameter("mobInput");
@@ -36,7 +37,32 @@ public class Register extends HttpServlet {
 			User user = new User(name, email, mobile_no, password, c_password, h_password);
 			
 			RegisterDao dao = new RegisterDao();
-			dao.verifyAndInsetNewUser(user);
+			result = dao.verifyAndInsetNewUser(user);
+			 
+			if(result.equalsIgnoreCase("Successful"))
+			{
+				//ON SUCCESS
+				request.setAttribute("Message", "Successfully registered. Sign In to continue..");
+				request.getRequestDispatcher("/register.jsp").forward(request, response);
+			}
+			else if(result.equalsIgnoreCase("Mobile No. already exists"))
+			{
+				//IF MOBLE NO. ALREADY EXISTS
+				request.setAttribute("Mobile", "Mobile No. already exists!");
+				request.getRequestDispatcher("/register.jsp").forward(request, response);
+			}
+			else if(result.equalsIgnoreCase("Email already exists"))
+			{
+				//IF EMAIL ALREADY EXISTS
+				request.setAttribute("Email", "Email already exists!");
+				request.getRequestDispatcher("/register.jsp").forward(request, response);
+			}
+			else
+			{
+				//ON FAILURE OR ERROR
+				request.setAttribute("Message", "Something went wrong, Please try again..");
+				request.getRequestDispatcher("/register.jsp").forward(request, response);
+			}
 		}
 		catch(Throwable e)
 		{

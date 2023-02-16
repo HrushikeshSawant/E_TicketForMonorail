@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' rel='stylesheet'>
 <link href="<%=request.getContextPath()%>/resources/css/styleNew.css" rel="stylesheet" >
-<link href="<%=request.getContextPath()%>/resources/css/error1.css" rel="stylesheet" >
+<link href="<%=request.getContextPath()%>/resources/css/error2.css" rel="stylesheet" >
 <title>Register</title>
 <link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/images/logo.ico" />
 </head>
@@ -44,6 +44,7 @@
 				<label for = "mob_no">Mobile No.</label>
 				<input type = "tel" class="form-control" id = "mobInput" name = "mobInput" onblur = "mobileValidate()" autocomplete="off">
 				<span id="mobInputStatus" class="errorHeader">Mobile Number is required!</span>		
+				<span class="e3" id="e3"><%=request.getAttribute("Mobile")%></span>
 			</div>
 			<br/>			
 			<div class="form-group has-feedback">		
@@ -69,6 +70,6 @@
 		</div>
 	</div>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/Validation.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/errorValidation1.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/errorValidation2.js"></script>
 </body>
 </html>
