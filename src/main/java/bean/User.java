@@ -18,7 +18,7 @@ public class User {
 		this.c_password = c_password;
 		this.h_password = h_password;
 	}
-
+	
 	public String getName() {
 		return name;
 	}

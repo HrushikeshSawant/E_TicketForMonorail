@@ -17,7 +17,7 @@
 				<img src="<%=request.getContextPath()%>/resources/images/logo.png" width="200"></img>.
 				<p class="head">Sign Up Your Account</p><br/>
 				<div class="link">
-					<p class="cont"><a href = "Login.jsp" class = "link"><i class="fas fa-user"></i>&nbsp;&nbsp;Sign In </a></p>
+					<p class="cont"><a href = "login.jsp" class = "link"><i class="fas fa-user"></i>&nbsp;&nbsp;Sign In </a></p>
 				</div>
 		</div>
 		

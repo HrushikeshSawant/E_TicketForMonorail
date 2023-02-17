@@ -16,6 +16,13 @@
 		<description></description>
 		<servlet-class>connection.Connection</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>Login</display-name>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>com.Login</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/Register</url-pattern>
@@ -23,5 +30,9 @@
 	<servlet-mapping>
 		<servlet-name>Connection</servlet-name>
 		<url-pattern>/Connection</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/Login</url-pattern>
 	</servlet-mapping>
 </web-app>
