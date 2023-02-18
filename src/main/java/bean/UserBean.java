@@ -1,6 +1,6 @@
 package bean;
 
-public class User {
+public class UserBean {
 
 	private String name = "";
 	private String email = "";
@@ -9,7 +9,7 @@ public class User {
 	private String c_password = "";
 	private String h_password = "";
 
-	public User(String name, String email, String mobile_no, String password, String c_password, String h_password) {
+	public UserBean(String name, String email, String mobile_no, String password, String c_password, String h_password) {
 		super();
 		this.name = name;
 		this.email = email;

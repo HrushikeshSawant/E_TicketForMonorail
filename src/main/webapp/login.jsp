@@ -31,18 +31,21 @@
 						<label for = "email">Email</label>
 						<input type = "text" class="form-control" id = "emailInput" name = "emailInput" onblur = "emailValidate()" autocomplete="off">
 						<span id="emailInputStatus" class="errorHeader">Email address is required!</span>	
-						<span  class="e1" id="e1"><%=request.getAttribute("Email")%></span>			
+						<!-- <span  class="e1" id="e1"><%=request.getAttribute("Email")%></span> -->
+						<span  class="e1" id="e1">${Email}</span>			
 					</div>
 					<br/>				
 					<div class="form-group has-feedback">		
 						<label for = "password">Password</label>
 						<input type = "password" class="form-control" id = "passInput" name = "passInput" onblur = "passwordValidate()">
 						<span id="passInputStatus" class="errorHeader">Password is required!</span>	
-						<span class="e3" id="e3"><%=request.getAttribute("Pass")%></span>		
+						<!-- <span class="e3" id="e3"><%=request.getAttribute("Pass")%></span> -->	
+						<span class="e3" id="e3">${Pass}</span>		
 					</div>	
 					<br/><br/>					
 					<button type = "submit" class = "button">Login</button>
-					<span class="e2" id="e2"><%=request.getAttribute("Message")%></span>					
+					<!-- <span class="e2" id="e2"><%=request.getAttribute("Message")%></span> -->		
+					<span class="e2" id="e2">${Message}</span>			
 				</form>
 			</div>
 

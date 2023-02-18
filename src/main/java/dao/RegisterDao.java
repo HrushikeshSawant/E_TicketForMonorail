@@ -10,14 +10,14 @@ import org.apache.logging.log4j.Logger;
 
 import com.Register;
 
-import bean.User;
+import bean.UserBean;
 import connection.DBConnection;
 
 public class RegisterDao {
 	
 	private static Logger log = LogManager.getLogger(RegisterDao.class);
 
-	public String verifyAndInsetNewUser(User user) throws Throwable
+	public String verifyAndInsetNewUser(UserBean user) throws Throwable
 	{
 		try
 		{

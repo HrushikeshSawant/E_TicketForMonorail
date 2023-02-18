@@ -20,7 +20,7 @@ function errorValidate()
 	console.log(emailMsg.value);
 	console.log(globalMsg.value);
 	
-	if(emailMsg.value == "" || emailMsg.innerHTML.trim().length == 0 || emailMsg == null || emailMsg.innerHTML.length == 4)
+	if(emailMsg.value == "" || emailMsg.innerHTML.trim().length == 0 || emailMsg == null)
 	{
 		console.log("Null");
 		document.getElementById('e1').style.display = "none";
@@ -31,7 +31,7 @@ function errorValidate()
 		document.getElementById('e1').style.display = "block";
 	}
 	
-	if(globalMsg.value == "" || globalMsg.innerHTML.trim().length == 0 || globalMsg == null || globalMsg.innerHTML.length == 4)
+	if(globalMsg.value == "" || globalMsg.innerHTML.trim().length == 0 || globalMsg == null)
 	{
 		console.log("Null");
 		document.getElementById('e2').style.display = "none";
@@ -42,7 +42,7 @@ function errorValidate()
 		document.getElementById('e2').style.display = "block";
 	}
 	
-	if(mobileMsg.value == "" || mobileMsg.innerHTML.trim().length == 0 || mobileMsg == null || mobileMsg.innerHTML.length == 4)
+	if(mobileMsg.value == "" || mobileMsg.innerHTML.trim().length == 0 || mobileMsg == null)
 	{
 		console.log("Null");
 		document.getElementById('e3').style.display = "none";

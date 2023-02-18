@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import bean.User;
+import bean.UserBean;
 import dao.RegisterDao;
 
 /**
@@ -24,7 +24,7 @@ public class Register extends HttpServlet {
 		 
 		try
 		{
-			log.info("Getting User values from UI");
+			log.trace("Getting User Registration info from UI");
 			String result;
 			String name = request.getParameter("nameInput");
 			String email = request.getParameter("emailInput");
@@ -33,8 +33,8 @@ public class Register extends HttpServlet {
 			String c_password = request.getParameter("cpassInput");
 			String h_password = other.PassWHash.getMd5(password);
 			
-			log.info("Register Getters and Setters Called");
-			User user = new User(name, email, mobile_no, password, c_password, h_password);
+			log.trace("Register Getters and Setters Called");
+			UserBean user = new UserBean(name, email, mobile_no, password, c_password, h_password);
 			
 			RegisterDao dao = new RegisterDao();
 			result = dao.verifyAndInsetNewUser(user);
