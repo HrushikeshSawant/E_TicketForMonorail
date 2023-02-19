@@ -13,6 +13,11 @@ public class LoginBean {
 		this.h_password = h_password;
 	}
 	
+	public LoginBean(String email) {
+		super();
+		this.email = email;
+	}
+	
 	public String getEmail() {
 		return email;
 	}

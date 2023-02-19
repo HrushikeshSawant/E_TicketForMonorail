@@ -21,7 +21,7 @@ public class UserDetailsDao {
 		try
 		{
 			Connection con = DBConnection.DBCon();
-			PreparedStatement ps = con.prepareStatement("SELECT Name, Email, Wallet FROM users WHERE Email = ?");
+			PreparedStatement ps = con.prepareStatement("SELECT Name, Email, Wallet, Status FROM users WHERE Email = ?");
 			ps.setString(1, loginBean.getEmail());
 			ResultSet rs = ps.executeQuery();
 			
@@ -30,6 +30,7 @@ public class UserDetailsDao {
 				userDetails.put("Name", rs.getString("Name"));
 				userDetails.put("Email", rs.getString("Email"));
 				userDetails.put("Wallet", rs.getString("Wallet"));
+				userDetails.put("Status", rs.getString("Status"));
 			}
 			
 			return userDetails;

@@ -35,7 +35,7 @@ public class RegisterDao {
 				if(!mobileCheck.next())
 				{
 					//IF MOBILE NO. DOES NOT EXISTS
-					String sql = "INSERT INTO users (Name, Email, Mobile_No, Password, Wallet) VALUES (?, ?, ?, ?, ?)";
+					String sql = "INSERT INTO users (Name, Email, Mobile_No, Password, Wallet, Status) VALUES (?, ?, ?, ?, ?, ?)";
 					
 					PreparedStatement ps = con.prepareStatement(sql);
 					ps.setString(1, user.getName());
@@ -43,6 +43,7 @@ public class RegisterDao {
 					ps.setString(3, user.getmobile_no());
 					ps.setString(4, user.getH_password());
 					ps.setDouble(5, walletAmount);
+					ps.setString(6, "Active");
 					
 					int i = ps.executeUpdate();
 					

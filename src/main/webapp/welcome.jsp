@@ -49,16 +49,16 @@
 		<div class="container1" id="container1">
 					
 			<div class="cont1">				
-					<a href="Booking.jsp"><i class="fas fa-ticket-alt fa-3x"></i>Booking</a>
+					<a href="booking.jsp"><i class="fas fa-ticket-alt fa-3x"></i>Booking</a>
 			</div>
 			<div class="cont1">
-					<a href="Wallet.jsp"><i class="fas fa-wallet fa-3x"></i>Wallet</a>
+					<a href="wallet.jsp"><i class="fas fa-wallet fa-3x"></i>Wallet</a>
 			</div>
 			<div class="cont1">		
-					<a href="Route.jsp"><i class="fas fa-route fa-3x"></i>Route</a>
+					<a href="route.jsp"><i class="fas fa-route fa-3x"></i>Route</a>
 			</div>
 			<div class="cont1">	
-					<a href="History.jsp"><i class="fas fa-history fa-3x"></i>History</a>
+					<a href="history.jsp"><i class="fas fa-history fa-3x"></i>History</a>
 			</div>
 		</div>
 	<div class="container5" id="footer">

@@ -44,11 +44,21 @@ public class Login extends HttpServlet {
 				log.trace("Login Sucessful");
 				UserDetailsDao userDetailsDao = new UserDetailsDao();
 				HashMap<String, String> userDetails = userDetailsDao.getUserDetails(loginBean);
-				HttpSession session = request.getSession();
-				session.setAttribute("Name", userDetails.get("Name"));
-				session.setAttribute("Email", userDetails.get("Email"));
-				session.setAttribute("Wallet", userDetails.get("Wallet"));
-				response.sendRedirect("welcome.jsp");
+				
+				if(userDetails.get("Status").trim().equalsIgnoreCase("Deleted"))
+				{
+					log.trace("Email not found");
+					request.setAttribute("Email", "Email not found!");
+					request.getRequestDispatcher("/login.jsp").forward(request, response);
+				}
+				else
+				{
+					HttpSession session = request.getSession();
+					session.setAttribute("Name", userDetails.get("Name"));
+					session.setAttribute("Email", userDetails.get("Email"));
+					session.setAttribute("Wallet", Double.parseDouble(userDetails.get("Wallet")));
+					response.sendRedirect("welcome.jsp");
+				}
 			}
 			else if(result.equalsIgnoreCase("Incorrect Password"))
 			{
