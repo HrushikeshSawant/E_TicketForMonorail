@@ -27,7 +27,7 @@
 					<i class="fas fa-user-tie"></i>&nbsp;&nbsp;${Name}
 					<div class="bar">
 						<p class="blank"></p>
-						<a href="welcome">Home</a> 
+						<a href="welcome.jsp">Home</a> 
 						<a href="Logout">Logout</a>
 					</div>
 				</div>

@@ -80,6 +80,8 @@ a:hover{
 }
 
 .content{
+	display: flex;
+	flex-wrap: wrap;
 	margin: 3% auto 3% auto;
 	border-collapse: collapse;
 	font-size: 15px;
