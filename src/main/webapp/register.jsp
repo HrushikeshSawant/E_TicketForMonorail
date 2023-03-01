@@ -37,7 +37,6 @@
 				<label for = "email">Email</label>
 				<input type = "text" class="form-control" id = "emailInput" name = "emailInput" onblur = "emailValidate()" autocomplete="off">
 				<span id="emailInputStatus" class="errorHeader">Email address is required!</span>	
-				<!-- <span class="e1" id="e1"><%=request.getAttribute("Email")%></span> -->	
 				<span class="e1" id="e1">${Email}</span>			
 			</div>
 			<br/>		
@@ -45,7 +44,6 @@
 				<label for = "mob_no">Mobile No.</label>
 				<input type = "tel" class="form-control" id = "mobInput" name = "mobInput" onblur = "mobileValidate()" autocomplete="off">
 				<span id="mobInputStatus" class="errorHeader">Mobile Number is required!</span>		
-				<!-- <span class="e3" id="e3"><%=request.getAttribute("Mobile")%></span> -->
 				<span class="e3" id="e3">${Mobile}</span>
 			</div>
 			<br/>			
@@ -62,7 +60,6 @@
 			</div>
 			<br/><br/>					
 			<button type = "submit" class = "button">Register</button>
-			<!-- <span class="e2" id="e2"><%=request.getAttribute("Message")%></span><br/> -->	
 			<span class="e2" id="e2">${Message}</span><br/>
 		</form>
 		</div>

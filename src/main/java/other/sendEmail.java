@@ -10,16 +10,34 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpSession;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import dao.LoginDao;
 
 public class sendEmail {
 	
-	public static void main(String[] args) {
+	private static Logger log = LogManager.getLogger(sendEmail.class);
+	
+	public static String sendEmailToUser(String email, String functionality, String data) {
         
-		String result1;
-        String to = "hsawant2209@gmail.com";
-		String subject = "Account Deleted!";				  
-		String body = "Your User Account on E-Ticket for Monorail has been permanently deleted due to violation of some rules. \n\n\n For any Query mail us on: monorail.mmrda@gmail.com";
-				
+		String subject;
+		String body;
+        String to = email;
+        
+        if(functionality.equalsIgnoreCase("otp"))
+        {
+        	subject = "Request for Password Change";				  
+    		body = "Your OTP for Password Change is : " + data;
+        }
+        else
+        {
+			subject = "Account Deleted!";				  
+			body = "Your User Account on E-Ticket for Monorail has been permanently deleted due to violation of some rules. \n\n\n For any Query mail us on: monorail.mmrda@gmail.com";
+        }
+        
 		final String from = "monorail.mmrda@gmail.com";
 		final String pass = "jqysqgedjroidlqz";
 
@@ -39,7 +57,7 @@ public class sendEmail {
 			
 		});
 		
-		session.setDebug(true);
+//		session.setDebug(true);
 		
 		MimeMessage message = new MimeMessage(session);
 		try 
@@ -51,12 +69,15 @@ public class sendEmail {
 			System.out.println("Sending...");
 			Transport.send(message);
 			System.out.println("Email Sent...");
-			
+			log.trace("Login Successful");
+			return "Email Sent";
 		} 
 		catch (MessagingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		log.trace("Something went wrong, Please try again..");
+		return "Something went wrong, Please try again..";
     }
 }

@@ -58,6 +58,27 @@
 		<servlet-name>WalletHistory</servlet-name>
 		<servlet-class>com.WalletHistory</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>Recovery</display-name>
+		<servlet-name>Recovery</servlet-name>
+		<servlet-class>com.Recovery</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>OTP</display-name>
+		<servlet-name>OTP</servlet-name>
+		<servlet-class>com.OTP</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>NewPassword</display-name>
+		<servlet-name>NewPassword</servlet-name>
+		<servlet-class>com.NewPassword</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/Register</url-pattern>
@@ -89,5 +110,17 @@
 	<servlet-mapping>
 		<servlet-name>WalletHistory</servlet-name>
 		<url-pattern>/WalletHistory</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Recovery</servlet-name>
+		<url-pattern>/Recovery</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>OTP</servlet-name>
+		<url-pattern>/OTP</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>NewPassword</servlet-name>
+		<url-pattern>/NewPassword</url-pattern>
 	</servlet-mapping>
 </web-app>
