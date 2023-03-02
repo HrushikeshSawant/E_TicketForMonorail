@@ -79,6 +79,13 @@
 		<servlet-name>NewPassword</servlet-name>
 		<servlet-class>com.NewPassword</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>DeleteMe</display-name>
+		<servlet-name>DeleteMe</servlet-name>
+		<servlet-class>com.DeleteMe</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/Register</url-pattern>
@@ -122,5 +129,9 @@
 	<servlet-mapping>
 		<servlet-name>NewPassword</servlet-name>
 		<url-pattern>/NewPassword</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteMe</servlet-name>
+		<url-pattern>/DeleteMe</url-pattern>
 	</servlet-mapping>
 </web-app>

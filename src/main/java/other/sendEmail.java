@@ -32,10 +32,15 @@ public class sendEmail {
         	subject = "Request for Password Change";				  
     		body = "Your OTP for Password Change is : " + data;
         }
+        else if(functionality.equalsIgnoreCase("User delete"))
+        {
+        	subject = "Account Deleted!";				  
+    		body = "Thank You for using E-TicketForMonorail. \nYour account has been deleted successfully!!";
+        }
         else
         {
 			subject = "Account Deleted!";				  
-			body = "Your User Account on E-Ticket for Monorail has been permanently deleted due to violation of some rules. \n\n\n For any Query mail us on: monorail.mmrda@gmail.com";
+			body = "Your User Account on E-TicketForMonorail has been permanently deleted due to violation of some rules. \n\n\n For any Query mail us on: monorail.mmrda@gmail.com";
         }
         
 		final String from = "monorail.mmrda@gmail.com";
