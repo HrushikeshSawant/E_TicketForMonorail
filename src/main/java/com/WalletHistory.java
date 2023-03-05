@@ -36,17 +36,17 @@ public class WalletHistory extends HttpServlet {
 		if(!walletHistory.isEmpty())
 		{
 			request.setAttribute("WalletHistory", walletHistory);
-			request.getRequestDispatcher("/walletHistory.jsp").forward(request, response);
+			request.getRequestDispatcher("/wallet-history.jsp").forward(request, response);
 		}
 		else if(walletHistory.size() == 0)
 		{
 			request.setAttribute("NoData", "No data available");
-			request.getRequestDispatcher("/walletHistory.jsp").forward(request, response);
+			request.getRequestDispatcher("/wallet-history.jsp").forward(request, response);
 		}
 		else
 		{
 			request.setAttribute("Message", "Something went wrong, Please try again..");
-			request.getRequestDispatcher("/walletHistory.jsp").forward(request, response);
+			request.getRequestDispatcher("/wallet-history.jsp").forward(request, response);
 		}
 	}
 

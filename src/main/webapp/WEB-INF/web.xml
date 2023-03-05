@@ -86,6 +86,27 @@
 		<servlet-name>DeleteMe</servlet-name>
 		<servlet-class>com.DeleteMe</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>GetStationNames</display-name>
+		<servlet-name>GetStationNames</servlet-name>
+		<servlet-class>com.GetStationNames</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>Booking</display-name>
+		<servlet-name>Booking</servlet-name>
+		<servlet-class>com.Booking</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>SingleTicketBooking</display-name>
+		<servlet-name>SingleTicketBooking</servlet-name>
+		<servlet-class>com.SingleTicketBooking</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/Register</url-pattern>
@@ -133,5 +154,13 @@
 	<servlet-mapping>
 		<servlet-name>DeleteMe</servlet-name>
 		<url-pattern>/DeleteMe</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Booking</servlet-name>
+		<url-pattern>/Booking</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SingleTicketBooking</servlet-name>
+		<url-pattern>/SingleTicketBooking</url-pattern>
 	</servlet-mapping>
 </web-app>

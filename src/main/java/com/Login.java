@@ -77,12 +77,14 @@ public class Login extends HttpServlet {
 			else
 			{
 				//ON FAILURE OR ERROR
+				log.trace("Something went wrong while login");
 				request.setAttribute("Message", "Something went wrong, Please try again..");
 				request.getRequestDispatcher("/login.jsp").forward(request, response);
 			}
 		}
 		else
 		{
+			log.trace("Email & Password is blank");
 			request.setAttribute("Email", "Email address is required!");
 			request.setAttribute("Pass", "Password is required!");
 			request.getRequestDispatcher("/login.jsp").forward(request, response);
