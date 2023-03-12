@@ -135,6 +135,13 @@
 		<servlet-name>TicketHistory</servlet-name>
 		<servlet-class>com.TicketHistory</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>PassBooking</display-name>
+		<servlet-name>PassBooking</servlet-name>
+		<servlet-class>com.PassBooking</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/Register</url-pattern>
@@ -206,5 +213,9 @@
 	<servlet-mapping>
 		<servlet-name>TicketHistory</servlet-name>
 		<url-pattern>/TicketHistory</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PassBooking</servlet-name>
+		<url-pattern>/PassBooking</url-pattern>
 	</servlet-mapping>
 </web-app>

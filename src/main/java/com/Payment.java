@@ -33,9 +33,9 @@ public class Payment extends HttpServlet {
 			session.setAttribute("Wallet", Double.parseDouble(userDetailsDao.getWalletAmount(email)));
 			request.getRequestDispatcher("/ticket-payment.jsp").forward(request, response);
 		}
-		else if(type.trim().equalsIgnoreCase(""))
+		else if(type.trim().equalsIgnoreCase("pass-booking"))
 		{
-			
+			request.getRequestDispatcher("/pass-payment.jsp").forward(request, response);
 		}
 	}
 

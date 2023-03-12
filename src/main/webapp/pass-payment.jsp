@@ -13,13 +13,12 @@
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
 <script type='text/javascript' src='<%=request.getContextPath()%>/resources/js/gatewayVal.js'></script>
-<script type='text/javascript' src='gateway.js'></script>
 </head>
 <body oncontextmenu='return false' class='snippet-body'>
 	<%
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 		if(session.getAttribute("Email")==null){
-			response.sendRedirect("Login.jsp");
+			response.sendRedirect("login.jsp");
 		}
 	%>
 	<div class="container-fluid px-0" id="bg-div">
@@ -71,7 +70,7 @@
 	                                    <div class="col-11">
 	                                        <div class="form-card">
 	                                            <h3 class="mt-0 mb-4 text-center">Enter bank details to pay</h3>
-	                                            <form action="PassT" method="post" id="form" class="form" name="form">
+	                                            <form action="PaymentProcess?booking-type=pass" method="post" id="form" class="form" name="form">
 	                                                <div class="row form-group has-feedback">
 	                                                  <span id = "bk_nmStatus" class = "errorHeader"><b>*</b></span>
 	                                                    <div class="col-12 form-group has-feedback">
@@ -93,6 +92,7 @@
 	                                                    </div>
 	                                                </div>
 	                                                <div class="row">
+	                                                	<input type="hidden" name = "payment-type" value = "bank">
 	                                                    <div class="col-md-12"> <input type="submit" value="Pay" class="btn btn-success placeicon" name="btn"> </div>
 	                                                </div>
 	                                            </form>
@@ -106,7 +106,7 @@
 	                                        <div class="form-card">
 	                                            <h3 class="mt-0 mb-4 text-center">Enter your card details to pay</h3>
 			 									<img src="<%=request.getContextPath()%>/resources/images/card.png"></img>
-	                                            <form action="PassT" method="post" id="form1" class="form1" name="form1">
+	                                            <form action="PaymentProcess?booking-type=pass" method="post" id="form1" class="form1" name="form1">
 	                                                <div class="row">
 	                                                    <div class="col-12 form-group has-feedback">
 	                                                        <span id = "co_nameStatus" class = "errorHeader"><b>*</b></span>
@@ -128,6 +128,7 @@
 	                                                    </div>
 	                                                </div>
 	                                                <div class="row">
+	                                                	<input type="hidden" name = "payment-type" value = "card">
 	                                                    <div class="col-md-12"> <input type="submit" value="PAY" class="btn btn-success placeicon" name="btn"> </div>
 	                                                </div>
 	                                                <div class="row">

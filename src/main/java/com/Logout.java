@@ -25,6 +25,9 @@ public class Logout extends HttpServlet {
 		session.removeAttribute("Source");
 		session.removeAttribute("Destination");
 		session.removeAttribute("PassengersCount");
+		session.removeAttribute("FromDate");
+		session.removeAttribute("ThroughDate");
+		session.removeAttribute("Type");
 		session.removeAttribute("Fare");
 		session.removeAttribute("txnid");
 		session.removeAttribute("dateTime");

@@ -28,25 +28,42 @@ public class PaymentProcess extends HttpServlet {
 		try
 		{
 			HttpSession session = request.getSession(false);
+			double passengersCount = 0;
+			String validFrom = null;
+			String validThrough = null;
+			String passType = null;
+			String paymentType = request.getParameter("payment-type");
+			String bookingType = request.getParameter("booking-type");
 			String result = null;
 			String email = (String)session.getAttribute("Email");
 			String source = (String)session.getAttribute("Source");
 			String destination = (String)session.getAttribute("Destination");
-			double passengersCount = (Double)session.getAttribute("PassengersCount");
 			double fare = (Double)session.getAttribute("Fare");
+			
+			//===FOR TICKET===//
+			if(bookingType.equalsIgnoreCase("ticket"))
+				passengersCount = (Double)session.getAttribute("PassengersCount");
+			
+			//===FOR TICKET===//
+			if(bookingType.equalsIgnoreCase("pass"))
+			{
+				validFrom = (String)session.getAttribute("FromDate");
+				validThrough = (String)session.getAttribute("ThroughDate");
+				passType = (String)session.getAttribute("Type");
+			}
+			
 			Details dt = new Details();
 			String dateTime = dt.dateTime();
 			Random random = new Random();
 			String rndm = Integer.toString(random.nextInt())+(System.currentTimeMillis());
 			String txnid = dt.hashCal("SHA-256", rndm).substring(0,20);
-			String paymentType = request.getParameter("payment-type");
-			String bookingType = request.getParameter("booking-type");
 			double wallet = (Double)session.getAttribute("Wallet");
 			System.out.println(paymentType);
 			System.out.println(bookingType);
 
 			BookingTransactionDao bookingTransactionDao = new BookingTransactionDao();
 			
+			//===FOR TICKET===//
 			if(paymentType.equalsIgnoreCase("bank") && bookingType.equalsIgnoreCase("ticket"))
 			{
 				result = bookingTransactionDao.updateTicketTransaction(email, source, destination, passengersCount, fare, paymentType.toUpperCase(), txnid, dateTime);
@@ -71,6 +88,17 @@ public class PaymentProcess extends HttpServlet {
 				}
 			}
 			
+			//===FOR PASS===//
+			else if(paymentType.equalsIgnoreCase("bank") && bookingType.equalsIgnoreCase("pass"))
+			{
+				result = bookingTransactionDao.updatePassTransaction(email, source, destination, validFrom, validThrough, passType, fare, paymentType.toUpperCase(), txnid, dateTime);
+			}
+			else if(paymentType.equalsIgnoreCase("card") && bookingType.equalsIgnoreCase("pass"))
+			{
+				result = bookingTransactionDao.updatePassTransaction(email, source, destination, validFrom, validThrough, passType, fare, paymentType.toUpperCase(), txnid, dateTime);
+			}
+			
+			//===FOR TICKET DATABASE UPDATE===//
 			if(result.equalsIgnoreCase("Successful") && bookingType.equalsIgnoreCase("ticket"))
 			{
 				//ON SUCCESS
@@ -85,10 +113,31 @@ public class PaymentProcess extends HttpServlet {
 				request.setAttribute("Err", "Ticket not Booked!");
 				request.getRequestDispatcher("/single-ticket.jsp").forward(request, response);
 			}
-			else
+			else if(result.equalsIgnoreCase("Something went wrong, Please try again..") && bookingType.equalsIgnoreCase("ticket") )
 			{
 				request.setAttribute("Msg", "Something went wrong, Please try again..");
 				request.getRequestDispatcher("/single-ticket.jsp").forward(request, response);
+			}
+			
+			//===FOR PASS DATABASE UPDATE===//
+			if(result.equalsIgnoreCase("Successful") && bookingType.equalsIgnoreCase("pass"))
+			{
+				//ON SUCCESS
+				request.setAttribute("Msg", "Pass Booked Successfully!");
+				session.setAttribute("dateTime", dateTime);
+				session.setAttribute("txnid", txnid);
+				request.getRequestDispatcher("/pass-details.jsp").forward(request, response);
+			}
+			else if(result.equalsIgnoreCase("Unsuccessful") && bookingType.equalsIgnoreCase("pass"))
+			{
+				//ON FAILURE
+				request.setAttribute("Err", "Pass not Booked!");
+				request.getRequestDispatcher("/book-pass.jsp").forward(request, response);
+			}
+			else if(result.equalsIgnoreCase("Something went wrong, Please try again..") && bookingType.equalsIgnoreCase("pass") )
+			{
+				request.setAttribute("Msg", "Something went wrong, Please try again..");
+				request.getRequestDispatcher("/book-pass.jsp").forward(request, response);
 			}
 		}
 		catch (Exception e) {
