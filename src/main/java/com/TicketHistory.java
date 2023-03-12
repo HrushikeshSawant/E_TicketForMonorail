@@ -13,40 +13,40 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import bean.LoginBean;
-import bean.WalletHistoryBean;
-import dao.WalletDao;
+import bean.TicketHistoryBean;
+import dao.TicketHistoryDao;
 
 /**
- * Servlet implementation class WalletHistory
+ * Servlet implementation class TicketHistory
  */
-public class WalletHistory extends HttpServlet {
+public class TicketHistory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static Logger log = LogManager.getLogger(WalletHistory.class);
+	private static Logger log = LogManager.getLogger(TicketHistory.class);
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession(false);
-		ArrayList<WalletHistoryBean> walletHistory;
+		ArrayList<TicketHistoryBean> ticketHistory;
 		String email = (String)session.getAttribute("Email");
 		
 		LoginBean loginBean = new LoginBean(email);
-		WalletDao walletDao = new WalletDao();
-		walletHistory = walletDao.getWalletHistory(loginBean);
+		TicketHistoryDao ticketHistoryDao = new TicketHistoryDao();
+		ticketHistory = ticketHistoryDao.getTicketHistory(loginBean);
 		
-		if(!walletHistory.isEmpty())
+		if(!ticketHistory.isEmpty())
 		{
-			request.setAttribute("WalletHistory", walletHistory);
-			request.getRequestDispatcher("/wallet-history.jsp").forward(request, response);
+			request.setAttribute("TicketHistory", ticketHistory);
+			request.getRequestDispatcher("/ticket-history.jsp").forward(request, response);
 		}
-		else if(walletHistory.size() == 0)
+		else if(ticketHistory.size() == 0)
 		{
 			request.setAttribute("NoData", "No data available");
-			request.getRequestDispatcher("/wallet-history.jsp").forward(request, response);
+			request.getRequestDispatcher("/ticket-history.jsp").forward(request, response);
 		}
 		else
 		{
 			request.setAttribute("Message", "Something went wrong, Please try again..");
-			request.getRequestDispatcher("/wallet-history.jsp").forward(request, response);
+			request.getRequestDispatcher("/ticket-history.jsp").forward(request, response);
 		}
 	}
 

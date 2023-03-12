@@ -33,7 +33,7 @@
 	<div class="container1" id="container1">
 					
 			<div class="cont1">		
-				<a href="ticketHistory.jsp"><i class="fas fa-ticket-alt fa-3x"></i>Ticket</a>
+				<a href="TicketHistory"><i class="fas fa-ticket-alt fa-3x"></i>Ticket</a>
 			</div>
 			<div class="cont1">		
 				<a href="passHistory.jsp"><i class="fas fa-calendar-check fa-3x"></i>Pass</a>

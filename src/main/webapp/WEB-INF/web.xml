@@ -128,6 +128,13 @@
 		<servlet-name>SendDetailsMail</servlet-name>
 		<servlet-class>com.SendDetailsMail</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>TicketHistory</display-name>
+		<servlet-name>TicketHistory</servlet-name>
+		<servlet-class>com.TicketHistory</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/Register</url-pattern>
@@ -195,5 +202,9 @@
 	<servlet-mapping>
 		<servlet-name>SendDetailsMail</servlet-name>
 		<url-pattern>/SendDetailsMail</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>TicketHistory</servlet-name>
+		<url-pattern>/TicketHistory</url-pattern>
 	</servlet-mapping>
 </web-app>
