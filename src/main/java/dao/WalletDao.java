@@ -108,5 +108,55 @@ public class WalletDao {
 		log.trace("Something went wrong, Please try again..");
 		return walletHistory;
 	}
+	
+	public String updateWalletAmount(String email, double newAmount)
+	{
+		try
+		{
+			Connection con = DBConnection.DBCon();
+			PreparedStatement ps = con.prepareStatement("UPDATE users SET Wallet = ? WHERE Email = ?");
+			ps.setDouble(1, newAmount);
+			ps.setString(2, email);
+			int i = ps.executeUpdate();
+			
+			//TO ENSURE WHETHER DATA IS INSERTES. 1 = INSERTED, 0 = NOT INSERTED.
+			if(i != 0)
+				return "Successful";
+			
+			return "Unsuccessful";
+		}
+		catch(Exception e)
+		{
+			e.getMessage();
+		}
+		
+		log.trace("Something went wrong, Please try again..");
+		return "Something went wrong, Please try again..";
+	}
+	
+	public String getWalletAmount(String email)
+	{
+		try
+		{
+			Connection con = DBConnection.DBCon();
+			PreparedStatement ps = con.prepareStatement("SELECT Wallet FROM users WHERE Email = ?");
+			ps.setString(1, email);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next())
+			{
+				return rs.getString("Wallet");
+			}
+			
+			return "No data found";
+		}
+		catch(Exception e)
+		{
+			e.getMessage();
+		}
+		
+		log.trace("Something went wrong, Please try again..");
+		return "Something went wrong, Please try again..";
+	}
 
 }

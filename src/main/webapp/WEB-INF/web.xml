@@ -107,6 +107,27 @@
 		<servlet-name>SingleTicketBooking</servlet-name>
 		<servlet-class>com.SingleTicketBooking</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>Payment</display-name>
+		<servlet-name>Payment</servlet-name>
+		<servlet-class>com.Payment</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>PaymentProcess</display-name>
+		<servlet-name>PaymentProcess</servlet-name>
+		<servlet-class>com.PaymentProcess</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>SendDetailsMail</display-name>
+		<servlet-name>SendDetailsMail</servlet-name>
+		<servlet-class>com.SendDetailsMail</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/Register</url-pattern>
@@ -162,5 +183,17 @@
 	<servlet-mapping>
 		<servlet-name>SingleTicketBooking</servlet-name>
 		<url-pattern>/SingleTicketBooking</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Payment</servlet-name>
+		<url-pattern>/Payment</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PaymentProcess</servlet-name>
+		<url-pattern>/PaymentProcess</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SendDetailsMail</servlet-name>
+		<url-pattern>/SendDetailsMail</url-pattern>
 	</servlet-mapping>
 </web-app>

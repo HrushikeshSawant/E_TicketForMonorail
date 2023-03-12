@@ -36,13 +36,13 @@ public class Booking extends HttpServlet {
 			if(type.equalsIgnoreCase("single-ticket"))
 			{
 				log.trace("Redirected to Single Ticket");
-				request.setAttribute("getStationNames", getStationNames);
+				session.setAttribute("getStationNames", getStationNames);
 				request.getRequestDispatcher("/single-ticket.jsp").forward(request, response);
 			}
 			else if(type.equalsIgnoreCase("book-pass"))
 			{
 				log.trace("Redirected to Book Pass");
-				request.setAttribute("getStationNames", getStationNames);
+				session.setAttribute("getStationNames", getStationNames);
 				request.getRequestDispatcher("/book-pass.jsp").forward(request, response);
 			}
 		}

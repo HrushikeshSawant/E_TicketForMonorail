@@ -40,7 +40,7 @@
 			Single Ticket	
 		</div>
 		<form class="form" action="SingleTicketBooking" method="post" id="form" name="form">
-			<% ArrayList<GetStationNamesBean> getStationNames = (ArrayList<GetStationNamesBean>)request.getAttribute("getStationNames"); %>
+			<% ArrayList<GetStationNamesBean> getStationNames = (ArrayList<GetStationNamesBean>)session.getAttribute("getStationNames"); %>
 			<div class="form-group has-feedback">
 			<label for="source">Source Station:</label>
 			<select name="source" id="source" class="form-control" required>

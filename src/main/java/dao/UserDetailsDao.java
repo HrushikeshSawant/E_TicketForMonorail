@@ -42,4 +42,25 @@ public class UserDetailsDao {
 		return null;
 	}
 	
+	public String getWalletAmount(String email)
+	{
+		try
+		{
+			Connection con = DBConnection.DBCon();
+			PreparedStatement ps = con.prepareStatement("SELECT Wallet FROM users WHERE Email = ?");
+			ps.setString(1, email);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next())
+			{
+				return rs.getString("Wallet");
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
+	
 }

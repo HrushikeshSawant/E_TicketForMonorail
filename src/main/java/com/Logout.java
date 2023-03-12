@@ -21,6 +21,13 @@ public class Logout extends HttpServlet {
 		session.removeAttribute("Name");
 		session.removeAttribute("Wallet");
 		session.removeAttribute("Amount");
+		session.removeAttribute("getStationNames");
+		session.removeAttribute("Source");
+		session.removeAttribute("Destination");
+		session.removeAttribute("PassengersCount");
+		session.removeAttribute("Fare");
+		session.removeAttribute("txnid");
+		session.removeAttribute("dateTime");
 		session.invalidate();
 		request.setAttribute("Message", "Successfully Logout.");
 		request.getRequestDispatcher("/login.jsp").forward(request, response);
