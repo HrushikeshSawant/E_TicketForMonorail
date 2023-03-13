@@ -58,8 +58,6 @@ public class PaymentProcess extends HttpServlet {
 			String rndm = Integer.toString(random.nextInt())+(System.currentTimeMillis());
 			String txnid = dt.hashCal("SHA-256", rndm).substring(0,20);
 			double wallet = (Double)session.getAttribute("Wallet");
-			System.out.println(paymentType);
-			System.out.println(bookingType);
 
 			BookingTransactionDao bookingTransactionDao = new BookingTransactionDao();
 			

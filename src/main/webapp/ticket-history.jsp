@@ -46,7 +46,6 @@
 			<th>Transaction Id</th>
 			<th>Date and Time</th>
 		</tr>
-		
 		<%
 			ArrayList<TicketHistoryBean> ticketHistory = (ArrayList<TicketHistoryBean>)request.getAttribute("TicketHistory");
 			if(ticketHistory.get(0).getSize() != 0)

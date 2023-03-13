@@ -73,5 +73,4 @@ public class TicketHistoryDao {
 		log.trace("Something went wrong, Please try again..");
 		return ticketHistory;
 	}
-
 }

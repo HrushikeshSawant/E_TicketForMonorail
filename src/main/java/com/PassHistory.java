@@ -1,0 +1,53 @@
+package com;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import bean.LoginBean;
+import bean.PassHistoryBean;
+import dao.PassHistoryDao;
+
+/**
+ * Servlet implementation class PassHistory
+ */
+public class PassHistory extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private static Logger log = LogManager.getLogger(TicketHistory.class);
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		HttpSession session = request.getSession(false);
+		ArrayList<PassHistoryBean> passHistory;
+		String email = (String)session.getAttribute("Email");
+		
+		LoginBean loginBean = new LoginBean(email);
+		PassHistoryDao passHistoryDao = new PassHistoryDao();
+		passHistory = passHistoryDao.getPassHistory(loginBean);
+		
+		if(!passHistory.isEmpty())
+		{
+			request.setAttribute("PassHistory", passHistory);
+			request.getRequestDispatcher("/pass-history.jsp").forward(request, response);
+		}
+		else if(passHistory.size() == 0)
+		{
+			request.setAttribute("NoData", "No data available");
+			request.getRequestDispatcher("/pass-history.jsp").forward(request, response);
+		}
+		else
+		{
+			request.setAttribute("Message", "Something went wrong, Please try again..");
+			request.getRequestDispatcher("/pass-history.jsp").forward(request, response);
+		}
+	}
+
+}

@@ -36,7 +36,7 @@
 				<a href="TicketHistory"><i class="fas fa-ticket-alt fa-3x"></i>Ticket</a>
 			</div>
 			<div class="cont1">		
-				<a href="passHistory.jsp"><i class="fas fa-calendar-check fa-3x"></i>Pass</a>
+				<a href="PassHistory"><i class="fas fa-calendar-check fa-3x"></i>Pass</a>
 			</div>
 			<div class="cont1">		
 				<a href="WalletHistory"><i class="fas fa-wallet fa-3x"></i>Wallet</a>
