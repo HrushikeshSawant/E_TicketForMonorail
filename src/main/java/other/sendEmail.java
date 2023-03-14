@@ -10,12 +10,9 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import dao.LoginDao;
 
 public class sendEmail {
 	
@@ -141,6 +138,52 @@ public class sendEmail {
 					  "Valid From: "+validFrom+"\n"+"Valid Though: "+validThrough+"\n"+
 					  "Type: "+passType+"\n"+"Amount: "+fare+"\n"+
 					  "Transaction Id: "+txnid+"\n"+"Date and Time: "+dateTime;
+		
+		Properties prop = new Properties();
+		prop.put("mail.smtp.host", "smtp.gmail.com");
+		prop.put("mail.smtp.port", "465");
+		prop.put("mail.smtp.ssl.enable", "true");
+		prop.put("mail.smtp.auth", "true");
+		
+		Session session = Session.getInstance(prop, new Authenticator() {
+			
+			@Override
+			protected PasswordAuthentication getPasswordAuthentication()
+			{
+				return new PasswordAuthentication(from, pass);
+			}
+			
+		});
+		
+//		session.setDebug(true);
+		
+		MimeMessage message = new MimeMessage(session);
+		try 
+		{
+			message.setFrom(new InternetAddress(from));
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+			message.setSubject(subject);
+			message.setText(body);
+			System.out.println("Sending...");
+			Transport.send(message);
+			System.out.println("Email Sent...");
+			log.trace("Login Successful");
+			return "Email Sent";
+		} 
+		catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		log.trace("Something went wrong, Please try again..");
+		return "Something went wrong, Please try again..";
+	}
+	
+	public static String adminPasswordChangeRequest(String email) {
+		
+		String to = from;
+		String subject = "REQUEST: Admin Password Reset";				  
+		String body = "Hi Team, \n\nRequest to change admin password for '" + email + "' email address. \n\nThanks & Regards, \nAdmin.";
 		
 		Properties prop = new Properties();
 		prop.put("mail.smtp.host", "smtp.gmail.com");

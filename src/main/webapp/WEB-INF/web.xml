@@ -149,6 +149,13 @@
 		<servlet-name>PassHistory</servlet-name>
 		<servlet-class>com.PassHistory</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AdminRecovery</display-name>
+		<servlet-name>AdminRecovery</servlet-name>
+		<servlet-class>com.AdminRecovery</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/Register</url-pattern>
@@ -228,5 +235,9 @@
 	<servlet-mapping>
 		<servlet-name>PassHistory</servlet-name>
 		<url-pattern>/PassHistory</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminRecovery</servlet-name>
+		<url-pattern>/AdminRecovery</url-pattern>
 	</servlet-mapping>
 </web-app>
