@@ -156,6 +156,27 @@
 		<servlet-name>AdminRecovery</servlet-name>
 		<servlet-class>com.AdminRecovery</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AdminLogin</display-name>
+		<servlet-name>AdminLogin</servlet-name>
+		<servlet-class>com.AdminLogin</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>GetUserDetails</display-name>
+		<servlet-name>GetUserDetails</servlet-name>
+		<servlet-class>com.GetUserDetails</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>UserTransactionDetails</display-name>
+		<servlet-name>UserTransactionDetails</servlet-name>
+		<servlet-class>com.UserTransactionDetails</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/Register</url-pattern>
@@ -239,5 +260,17 @@
 	<servlet-mapping>
 		<servlet-name>AdminRecovery</servlet-name>
 		<url-pattern>/AdminRecovery</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminLogin</servlet-name>
+		<url-pattern>/AdminLogin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetUserDetails</servlet-name>
+		<url-pattern>/GetUserDetails</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserTransactionDetails</servlet-name>
+		<url-pattern>/UserTransactionDetails</url-pattern>
 	</servlet-mapping>
 </web-app>

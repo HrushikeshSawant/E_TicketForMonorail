@@ -15,6 +15,7 @@ public class UserDetailsDao {
 
 	private static Logger log = LogManager.getLogger(UserDetailsDao.class);
 	HashMap<String, String> userDetails = new HashMap<String, String>();
+	HashMap<String, String> adminDetails = new HashMap<String, String>();
 	
 	public HashMap<String, String> getUserDetails(LoginBean loginBean)
 	{
@@ -55,6 +56,30 @@ public class UserDetailsDao {
 			{
 				return rs.getString("Wallet");
 			}
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
+	
+	public HashMap<String, String> getAdminDetails(LoginBean loginBean)
+	{
+		try
+		{
+			Connection con = DBConnection.DBCon();
+			PreparedStatement ps = con.prepareStatement("SELECT Name, Email FROM admins WHERE Email = ?");
+			ps.setString(1, loginBean.getEmail());
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next())
+			{
+				adminDetails.put("Name", rs.getString("Name"));
+				adminDetails.put("Email", rs.getString("Email"));
+			}
+			
+			return adminDetails;
 		}
 		catch(Exception e)
 		{

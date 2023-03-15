@@ -31,7 +31,7 @@
 				<div class = "header">		
 					<p>Login</p>	
 				</div>		
-				<form class = "form" action = "Login" method = "post" id = "form" name = "form">					
+				<form class = "form" action = "AdminLogin" method = "post" id = "form" name = "form">					
 					<div class="form-group has-feedback">			
 						<label for = "email">Email</label>
 						<input type = "text" class="form-control" id = "emailInput" name = "emailInput" onblur = "emailValidate()" autocomplete="off">

@@ -9,15 +9,15 @@ public class test {
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 
-		String input = "admin1";
+		String input = "Admin1@monorail";
         System.out.println(new test().getMD5(input));
-        input = "admin2";
+        input = "Admin2@monorail";
         System.out.println(new test().getMD5(input));
-        input = "admin3";
+        input = "Admin3@monorail";
         System.out.println(new test().getMD5(input));
-        input = "admin4";
+        input = "Admin4@monorail";
         System.out.println(new test().getMD5(input));
-        input = "admin5";
+        input = "Admin5@monorail";
         System.out.println(new test().getMD5(input));
         
 	}
