@@ -22,8 +22,8 @@ public class sendEmail {
 	
 	public static String sendEmailToUser(String email, String functionality, String data) {
         
-		String subject;
-		String body;
+		String subject = null;
+		String body = null;
         String to = email;
         
         if(functionality.equalsIgnoreCase("otp"))
@@ -36,7 +36,7 @@ public class sendEmail {
         	subject = "Account Deleted!";				  
     		body = "Thank You for using E-TicketForMonorail. \nYour account has been deleted successfully!!";
         }
-        else
+        else if(functionality.equalsIgnoreCase("Admin delete"))
         {
 			subject = "Account Deleted!";				  
 			body = "Your User Account on E-TicketForMonorail has been permanently deleted due to violation of some rules. \n\n\n For any Query mail us on: monorail.mmrda@gmail.com";

@@ -16,13 +16,13 @@ import bean.GetUserDetailsBean;
 import dao.GetUserDetailsDao;
 
 /**
- * Servlet implementation class GetUserDetails
+ * Servlet implementation class UserAction
  */
-public class GetUserDetails extends HttpServlet {
+public class UserAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static Logger log = LogManager.getLogger(GetUserDetails.class);
+	private static Logger log = LogManager.getLogger(UserAction.class);
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession(false);
 		ArrayList<GetUserDetailsBean> userDetails;
@@ -34,20 +34,21 @@ public class GetUserDetails extends HttpServlet {
 		{
 			log.info("Get user details");
 			request.setAttribute("UserDetails", userDetails);
-			request.getRequestDispatcher("/user-details.jsp").forward(request, response);
+			request.getRequestDispatcher("/user-action.jsp").forward(request, response);
 		}
 		else if(userDetails.size() == 0)
 		{
 			log.info("Empty user details");
 			request.setAttribute("NoData", "No data available");
-			request.getRequestDispatcher("/user-details.jsp").forward(request, response);
+			request.getRequestDispatcher("/user-action.jsp").forward(request, response);
 		}
 		else
 		{
 			log.info("Something went wrong, Please try again..");
 			request.setAttribute("Message", "Something went wrong, Please try again..");
-			request.getRequestDispatcher("/user-details.jsp").forward(request, response);
+			request.getRequestDispatcher("/user-action.jsp").forward(request, response);
 		}
+		
 	}
 
 }

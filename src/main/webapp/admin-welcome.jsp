@@ -41,7 +41,7 @@
 				<a href="GetUserDetails"><i class="fas fa-users fa-3x"></i>User Details</a>
 			</div>
 			<div class="cont1">
-				<a href="UserAction.jsp"><i class="fas fa-users-cog fa-3x"></i>User Actions</a>
+				<a href="UserAction"><i class="fas fa-users-cog fa-3x"></i>User Actions</a>
 			</div>
 			<div class="cont1">
 				<a href="HistoryA.jsp"><i class="fas fa-history fa-3x"></i>History</a>

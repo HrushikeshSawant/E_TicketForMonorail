@@ -177,6 +177,20 @@
 		<servlet-name>UserTransactionDetails</servlet-name>
 		<servlet-class>com.UserTransactionDetails</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>UserAction</display-name>
+		<servlet-name>UserAction</servlet-name>
+		<servlet-class>com.UserAction</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>DeleteUser</display-name>
+		<servlet-name>DeleteUser</servlet-name>
+		<servlet-class>com.DeleteUser</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/Register</url-pattern>
@@ -272,5 +286,13 @@
 	<servlet-mapping>
 		<servlet-name>UserTransactionDetails</servlet-name>
 		<url-pattern>/UserTransactionDetails</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserAction</servlet-name>
+		<url-pattern>/UserAction</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteUser</servlet-name>
+		<url-pattern>/DeleteUser</url-pattern>
 	</servlet-mapping>
 </web-app>

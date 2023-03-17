@@ -8,27 +8,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' rel='stylesheet'>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/stylee13.css" type="text/css"/>
-<title>Ticket History</title>
+<title>User Ticket History</title>
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/logo.ico" />
 </head>
 <body>
 	<%
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 		if(session.getAttribute("Email")==null){
-			response.sendRedirect("login.jsp");
+			response.sendRedirect("admin-login.jsp");
 		}
 		String Email = (String) session.getAttribute("Email");
 	%>
 	
 		<header>
 			<img src="${pageContext.request.contextPath}/resources/images/logo.png" class="logo"></img>
-			<p class="welcome">TICKET HISTORY</p>
+			<p class="welcome">USER TICKET HISTORY</p>
 			<nav>
 				<div class="dropdown">
 					<i class="fas fa-user-tie"></i>&nbsp;&nbsp;${Name}
 					<div class="bar">
 						<p class="blank"></p>
-						<a href="welcome.jsp">Home</a>
+						<a href="admin-welcome.jsp">Home</a>
 						<a href="Logout">Logout</a>
 					</div>
 				</div>
