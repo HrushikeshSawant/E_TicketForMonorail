@@ -39,7 +39,7 @@ public class sendEmail {
         else if(functionality.equalsIgnoreCase("Admin delete"))
         {
 			subject = "Account Deleted!";				  
-			body = "Your User Account on E-TicketForMonorail has been permanently deleted due to violation of some rules. \n\n\n For any Query mail us on: monorail.mmrda@gmail.com";
+			body = "Hello User, \n\nYour User Account on E-TicketForMonorail has been permanently deleted due to violation of some rules. \n\n For any Query mail us on: monorail.mmrda@gmail.com";
         }
         
 		Properties prop = new Properties();

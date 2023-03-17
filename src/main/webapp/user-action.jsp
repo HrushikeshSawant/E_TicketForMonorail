@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' rel='stylesheet'>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/stylea13.css" type="text/css"/>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/stylea13New.css" type="text/css"/>
 <title>User Detals</title>
 <link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/images/logo.ico" />
 </head>
@@ -33,7 +33,7 @@
 				</div>
 			</nav>
 		</header>
-		<span class="e2">${Msg}</span>
+		<span class="e2">${Message}</span>
 		<div class="container">
 			<table class="content">
 			

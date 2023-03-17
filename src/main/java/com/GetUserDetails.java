@@ -28,7 +28,7 @@ public class GetUserDetails extends HttpServlet {
 		ArrayList<GetUserDetailsBean> userDetails;
 		
 		GetUserDetailsDao getUserDetailsDao = new GetUserDetailsDao();
-		userDetails = getUserDetailsDao.getUserDetails();
+		userDetails = getUserDetailsDao.getActiveUserDetails();
 		
 		if(!userDetails.isEmpty())
 		{
