@@ -35,10 +35,10 @@
 	<div class="container1">
 		
 		<div class="cont1">
-			<a href="Booking?type=single-ticket"><i class="fas fa-ticket-alt fa-3x"></i>Single Ticket</a>
+			<a href="Booking?type=single-ticket&user-type=user"><i class="fas fa-ticket-alt fa-3x"></i>Single Ticket</a>
 		</div>
 		<div class="cont1">
-			<a href="Booking?type=book-pass"><i class="fas fa-calendar-check fa-3x"></i>Book Pass</a>
+			<a href="Booking?type=book-pass&user-type=user"><i class="fas fa-calendar-check fa-3x"></i>Book Pass</a>
 		</div>
 						
 	</div>

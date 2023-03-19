@@ -38,6 +38,7 @@
 		</div>
 	<form action="Payment" method="post" id="form" name="form" class="form">
 		<input type="hidden" name = "booking-type" value = "single-ticket">
+		<input type="hidden" name = "user-type" value = "user">
 		<div class="link1"><p class="var">Name: </p>${Name}</div>
 		<div class="link1"><p class="var">Email: </p>  ${Email}</div>
 		<div class="link1"><p class="var">Source Station: </p> ${Source}</div>

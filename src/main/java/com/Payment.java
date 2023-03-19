@@ -26,16 +26,25 @@ public class Payment extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		String email = (String)session.getAttribute("Email");
 		String type = request.getParameter("booking-type");
+		String userType = request.getParameter("user-type");
 		
-		if(type.trim().equalsIgnoreCase("single-ticket")) 
+		if(type.trim().equalsIgnoreCase("single-ticket") && userType.trim().equalsIgnoreCase("user")) 
 		{
 			UserDetailsDao userDetailsDao = new UserDetailsDao();
 			session.setAttribute("Wallet", Double.parseDouble(userDetailsDao.getWalletAmount(email)));
 			request.getRequestDispatcher("/ticket-payment.jsp").forward(request, response);
 		}
-		else if(type.trim().equalsIgnoreCase("pass-booking"))
+		else if(type.trim().equalsIgnoreCase("pass-booking") && userType.trim().equalsIgnoreCase("user"))
 		{
 			request.getRequestDispatcher("/pass-payment.jsp").forward(request, response);
+		}
+		else if(type.trim().equalsIgnoreCase("single-ticket") && userType.trim().equalsIgnoreCase("admin"))
+		{
+			request.getRequestDispatcher("/admin-ticket-payment.jsp").forward(request, response);
+		}
+		else if(type.trim().equalsIgnoreCase("pass-booking") && userType.trim().equalsIgnoreCase("admin"))
+		{
+			request.getRequestDispatcher("/admin-pass-payment.jsp").forward(request, response);
 		}
 	}
 

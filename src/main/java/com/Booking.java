@@ -27,23 +27,43 @@ public class Booking extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		log.trace("Getting type of booking");
 		String type = request.getParameter("type");
+		String userType = request.getParameter("user-type");
+		System.out.println(type + " " + userType);
 		
 		GetStationNamesDao getStationNamesDao = new GetStationNamesDao();
 		ArrayList<GetStationNamesBean> getStationNames = getStationNamesDao.getStationNames();
 		
 		if(!getStationNames.isEmpty())
 		{
-			if(type.equalsIgnoreCase("single-ticket"))
+			if(userType.trim().equalsIgnoreCase("user"))
 			{
-				log.trace("Redirected to Single Ticket");
-				session.setAttribute("getStationNames", getStationNames);
-				request.getRequestDispatcher("/single-ticket.jsp").forward(request, response);
+				if(type.equalsIgnoreCase("single-ticket"))
+				{
+					log.trace("Redirected to Single Ticket");
+					session.setAttribute("getStationNames", getStationNames);
+					request.getRequestDispatcher("/single-ticket.jsp").forward(request, response);
+				}
+				else if(type.equalsIgnoreCase("book-pass"))
+				{
+					log.trace("Redirected to Book Pass");
+					session.setAttribute("getStationNames", getStationNames);
+					request.getRequestDispatcher("/book-pass.jsp").forward(request, response);
+				}
 			}
-			else if(type.equalsIgnoreCase("book-pass"))
+			else if(userType.trim().equalsIgnoreCase("admin"))
 			{
-				log.trace("Redirected to Book Pass");
-				session.setAttribute("getStationNames", getStationNames);
-				request.getRequestDispatcher("/book-pass.jsp").forward(request, response);
+				if(type.equalsIgnoreCase("single-ticket"))
+				{
+					log.trace("Redirected to Single Ticket");
+					session.setAttribute("getStationNames", getStationNames);
+					request.getRequestDispatcher("/admin-single-ticket.jsp").forward(request, response);
+				}
+				else if(type.equalsIgnoreCase("book-pass"))
+				{
+					log.trace("Redirected to Book Pass");
+					session.setAttribute("getStationNames", getStationNames);
+					request.getRequestDispatcher("/admin-book-pass.jsp").forward(request, response);
+				}
 			}
 		}
 		else

@@ -25,15 +25,27 @@ public class SendDetailsMail extends HttpServlet {
 
 		HttpSession session = request.getSession(false);
 		String type = request.getParameter("type");
+		String userType = request.getParameter("user-type");
 		double passengersCount = 0;
 		String validFrom = null;
 		String validThrough = null;
 		String passType = null;
-		String name = (String)session.getAttribute("Name");
-		String email = (String)session.getAttribute("Email");
+		String name = null;
+		String email = null;
 		String source = (String)session.getAttribute("Source");
 		String destination = (String)session.getAttribute("Destination");
 		
+		//===FOR USER TYPE===//
+		if(userType.equalsIgnoreCase("user"))
+		{
+			name = (String)session.getAttribute("Name");
+			email = (String)session.getAttribute("Email");
+		}
+		
+		//===FOR USER TYPE===//
+		if(userType.equalsIgnoreCase("admin"))
+			email = (String)session.getAttribute("UserEmail");
+			
 		//===FOR TICKET===//
 		if(type.equalsIgnoreCase("ticket"))
 			passengersCount = (Double)session.getAttribute("PassengersCount");
@@ -49,11 +61,15 @@ public class SendDetailsMail extends HttpServlet {
 		double fare = (Double)session.getAttribute("Fare");
 		String txnid = (String)session.getAttribute("txnid");
 		String dateTime = (String)session.getAttribute("dateTime");
-		String result;
+		String result = null;
 		
 		if(type.equalsIgnoreCase("ticket"))
 		{
-			result = sendEmail.sendTicketDetailsToUser(name, email, source, destination, passengersCount, fare, txnid, dateTime);
+			if(userType.equalsIgnoreCase("user"))
+				result = sendEmail.sendTicketDetailsToUser(name, email, source, destination, passengersCount, fare, txnid, dateTime);
+			else if(userType.equalsIgnoreCase("admin"))
+				result = sendEmail.sendTicketFromAdminDetailsToUser(email, source, destination, passengersCount, fare, txnid, dateTime);
+			
 			if(result.equalsIgnoreCase("Email Sent"))
 			{
 				session.removeAttribute("Source");
@@ -63,7 +79,16 @@ public class SendDetailsMail extends HttpServlet {
 				session.removeAttribute("txnid");
 				session.removeAttribute("dateTime");
 				session.removeAttribute("getStationNames");
-				response.sendRedirect("welcome.jsp");
+				
+				if(userType.equalsIgnoreCase("user"))
+				{
+					response.sendRedirect("welcome.jsp");
+				}
+				else if(userType.equalsIgnoreCase("admin"))
+				{
+					session.removeAttribute("UserEmail");
+					response.sendRedirect("admin-welcome.jsp");
+				}
 			}
 			else
 			{

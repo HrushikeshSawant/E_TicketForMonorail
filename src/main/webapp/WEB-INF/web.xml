@@ -191,6 +191,20 @@
 		<servlet-name>DeleteUser</servlet-name>
 		<servlet-class>com.DeleteUser</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>SingleTicketBookingAdmin</display-name>
+		<servlet-name>SingleTicketBookingAdmin</servlet-name>
+		<servlet-class>com.SingleTicketBookingAdmin</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AdminPaymentProcess</display-name>
+		<servlet-name>AdminPaymentProcess</servlet-name>
+		<servlet-class>com.AdminPaymentProcess</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/Register</url-pattern>
@@ -294,5 +308,13 @@
 	<servlet-mapping>
 		<servlet-name>DeleteUser</servlet-name>
 		<url-pattern>/DeleteUser</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SingleTicketBookingAdmin</servlet-name>
+		<url-pattern>/SingleTicketBookingAdmin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminPaymentProcess</servlet-name>
+		<url-pattern>/AdminPaymentProcess</url-pattern>
 	</servlet-mapping>
 </web-app>

@@ -51,7 +51,7 @@
 			<p class="cont5">Transaction Id: <p class="value2">${txnid}</p> </p> 
 			<p class="cont6">Date and Time: <p class="value3"> ${dateTime}</p> </p> 
 		</div>		
-		<a href="SendDetailsMail?type=ticket">Click Here to Redirect>></a>
+		<a href="SendDetailsMail?type=ticket&user-type=user">Click Here to Redirect>></a>
 		</div>
 	</div>
 	</div>
