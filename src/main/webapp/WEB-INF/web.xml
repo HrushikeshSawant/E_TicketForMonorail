@@ -205,6 +205,20 @@
 		<servlet-name>AdminPaymentProcess</servlet-name>
 		<servlet-class>com.AdminPaymentProcess</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AdminTicketHistory</display-name>
+		<servlet-name>AdminTicketHistory</servlet-name>
+		<servlet-class>com.AdminTicketHistory</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>PassBookingAdmin</display-name>
+		<servlet-name>PassBookingAdmin</servlet-name>
+		<servlet-class>com.PassBookingAdmin</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/Register</url-pattern>
@@ -316,5 +330,13 @@
 	<servlet-mapping>
 		<servlet-name>AdminPaymentProcess</servlet-name>
 		<url-pattern>/AdminPaymentProcess</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminTicketHistory</servlet-name>
+		<url-pattern>/AdminTicketHistory</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PassBookingAdmin</servlet-name>
+		<url-pattern>/PassBookingAdmin</url-pattern>
 	</servlet-mapping>
 </web-app>

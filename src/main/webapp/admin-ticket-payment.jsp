@@ -18,7 +18,7 @@
 	<%
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 		if(session.getAttribute("Email")==null){
-			response.sendRedirect("login.jsp");
+			response.sendRedirect("admin-login.jsp");
 		}
 	%>
 	<div class="container-fluid px-0" id="bg-div">

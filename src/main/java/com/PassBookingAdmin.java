@@ -15,11 +15,11 @@ import org.apache.logging.log4j.Logger;
 import dao.GetFareDao;
 
 /**
- * Servlet implementation class PassBooking
+ * Servlet implementation class PassBookingAdmin
  */
-public class PassBooking extends HttpServlet {
+public class PassBookingAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static Logger log = LogManager.getLogger(PassBooking.class);
+	private static Logger log = LogManager.getLogger(PassBookingAdmin.class);
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -32,6 +32,7 @@ public class PassBooking extends HttpServlet {
 		String source = request.getParameter("source");
 		String destination = request.getParameter("dest");
 		String radio = request.getParameter("radio");
+		String email = request.getParameter("userEmail");
 		
 		LocalDate localDate = LocalDate.now();
 		if(radio.equalsIgnoreCase("Monthly"))
@@ -52,20 +53,21 @@ public class PassBooking extends HttpServlet {
 			//IF BOTH SOURCE AND DESTINATION ARE SAME
 			log.trace("Source and Destination are same");
 			request.setAttribute("Msg", "Source and Destination cannot be same!");
-			request.getRequestDispatcher("/book-pass.jsp").forward(request, response);
+			request.getRequestDispatcher("/admin-book-pass.jsp").forward(request, response);
 		}
 		else
 		{
 			GetFareDao getFareDao = new GetFareDao();
 			price = Double.parseDouble(getFareDao.getFareBetweenTwoStations(source, destination));
 			fare = (price*mult);
+			session.setAttribute("UserEmail", email);
 			session.setAttribute("Source", source);
 			session.setAttribute("Destination", destination);
 			session.setAttribute("FromDate", fromDate);
 			session.setAttribute("ThroughDate", throughDate);
 			session.setAttribute("Type", radio);
 			session.setAttribute("Fare", fare);
-			request.getRequestDispatcher("/pass-booking-process.jsp").forward(request, response);
+			request.getRequestDispatcher("/admin-pass-booking-process.jsp").forward(request, response);
 		}
 		
 	}

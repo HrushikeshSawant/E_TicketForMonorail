@@ -12,7 +12,7 @@
 <body>
 	<%
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-		if(session.getAttribute("Name")==null){
+		if(session.getAttribute("Email")==null){
 				response.sendRedirect("Login.jsp");
 		}
 	%>

@@ -6,9 +6,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' rel='stylesheet'>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/stylea7.css" type="text/css"/>
-<title>Book Ticket</title>
+<link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/stylea7.css" type="text/css">
+<title>Pass</title>
 <link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/images/logo.ico" />
 </head>
 <body>
@@ -21,7 +21,7 @@
 	%>
 	<header>
 			<img src="<%=request.getContextPath()%>/resources/images/logo.png" class="logo"></img>
-			<p class="welcome">TICKET BOOKING</p>
+			<p class="welcome">PASS BOOKING</p>
 			<nav>
 				<div class="dropdown">
 					<i class="fas fa-user-secret"></i>&nbsp;&nbsp;${Name}
@@ -34,11 +34,12 @@
 			</nav>
 		</header>
 	<div class="container">
-		<div class="box">
+	<div class="box">
 		<div class = "head">		
-			Single Ticket	
+			Pass Booking	
 		</div>
-		<form class="form" action="SingleTicketBookingAdmin" method="post" id="form" name="form">
+		<form class="form" action="PassBookingAdmin" method="post" id="form" name="form">
+				
 			<% ArrayList<GetStationNamesBean> getStationNames = (ArrayList<GetStationNamesBean>)session.getAttribute("getStationNames"); %>
 			<div class="form-group has-feedback">
 			<label for="source">Source Station:</label>
@@ -69,13 +70,18 @@
 						<option><%= getStationNames.get(i).getStationName() %></option>
 				<%	
 	        		}
-		        %>	
-						
+		        %>				
+		        
 			</select>
 			</div>
-			<br/>							
-			<label for="nosP">No.of Passengers</label>
-			<input type="text" name="nosP" id="nosP" class="form-control1" autocomplete="off" required>
+			<br/>
+			<label>Select Pass Type:</label><br/>
+			<div class="radiob">
+			<input type="radio" class="Monthly" id="Monthly" value="Monthly" name="radio" checked>
+			<label for="Monthly">Monthly</label>			
+			<input type="radio" class="Quarterly" id="Quarterly" value="Quarterly" name="radio">
+			<label for="Quarterly">Quarterly</label>
+			</div>
 			<br/>
 			<label for="Email">Email</label>
 			<input type="Email" name="userEmail" id="Email" class="form-control1" autocomplete="off" required>
@@ -84,7 +90,7 @@
 			<span class="e1">${Err}</span>
 			<span class="e2">${Msg}</span>
 		</form>
-	
+
 	</div>
 	</div>
 	<div class="container5">
