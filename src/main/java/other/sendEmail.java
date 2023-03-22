@@ -272,4 +272,53 @@ public class sendEmail {
 		log.trace("Something went wrong, Please try again..");
 		return "Something went wrong, Please try again..";
     }
+	
+	public static String sendPassFromAdminDetailsToUser(String email, String source, String destination, String validFrom, String validThrough, String passType, double fare, String txnid, String dateTime) {
+		
+		String to = email;
+		String subject = "MUMBAI MONORAIL: Pass Details";				  
+		String body = "Email: "+to+"\n"+"Source: "+source+"\n"+"Destination: "+destination+"\n"+
+					  "Valid From: "+validFrom+"\n"+"Valid Though: "+validThrough+"\n"+
+					  "Type: "+passType+"\n"+"Amount: "+fare+"\n"+
+					  "Transaction Id: "+txnid+"\n"+"Date and Time: "+dateTime;
+		
+		Properties prop = new Properties();
+		prop.put("mail.smtp.host", "smtp.gmail.com");
+		prop.put("mail.smtp.port", "465");
+		prop.put("mail.smtp.ssl.enable", "true");
+		prop.put("mail.smtp.auth", "true");
+		
+		Session session = Session.getInstance(prop, new Authenticator() {
+			
+			@Override
+			protected PasswordAuthentication getPasswordAuthentication()
+			{
+				return new PasswordAuthentication(from, pass);
+			}
+			
+		});
+		
+//		session.setDebug(true);
+		
+		MimeMessage message = new MimeMessage(session);
+		try 
+		{
+			message.setFrom(new InternetAddress(from));
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+			message.setSubject(subject);
+			message.setText(body);
+			System.out.println("Sending...");
+			Transport.send(message);
+			System.out.println("Email Sent...");
+			log.trace("Login Successful");
+			return "Email Sent";
+		} 
+		catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		log.trace("Something went wrong, Please try again..");
+		return "Something went wrong, Please try again..";
+	}
 }

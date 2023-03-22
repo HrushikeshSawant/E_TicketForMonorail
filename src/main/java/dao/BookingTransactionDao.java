@@ -127,4 +127,38 @@ public class BookingTransactionDao {
 		return "Something went wrong, Please try again..";
 	}
 	
+	public String updateAdminPassTransaction(String adminEmail, String userEmail, String source, String destination, String validFrom, String validThrough, String passType, double fare, String MOT, String txnid, String dateTime)
+	{
+		try
+		{
+			Connection con = DBConnection.DBCon();
+			PreparedStatement ps = con.prepareStatement("INSERT INTO admin_pass_transaction (Email, User_Email, Source, Destination, Valid_From, Valid_Through, Pass_Type, Fare, Mode_of_Transaction, Transaction_Id, DateTime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			ps.setString(1, adminEmail);
+			ps.setString(2, userEmail);
+			ps.setString(3, source);
+			ps.setString(4, destination);
+			ps.setString(5, validFrom);
+			ps.setString(6, validThrough);
+			ps.setString(7, passType);
+			ps.setDouble(8, fare);
+			ps.setString(9, MOT);
+			ps.setString(10, txnid);
+			ps.setString(11, dateTime);
+			
+			int i = ps.executeUpdate();
+			
+			if(i != 0)
+				return "Successful";
+		
+			return "Unsuccessful";
+		
+		}
+		catch(Exception e)
+		{
+			e.getMessage();
+		}
+		log.trace("Something went wrong, Please try again..");
+		return "Something went wrong, Please try again..";
+	}
+	
 }

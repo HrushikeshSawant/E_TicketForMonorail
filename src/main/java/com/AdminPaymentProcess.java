@@ -71,6 +71,16 @@ public class AdminPaymentProcess extends HttpServlet {
 				result = bookingTransactionDao.updateAdminTicketTransaction(adminEmail, userEmail, source, destination, passengersCount, fare, paymentType.toUpperCase(), txnid, dateTime);
 			}
 			
+			//===FOR PASS===//
+			else if(paymentType.equalsIgnoreCase("bank") && bookingType.equalsIgnoreCase("pass"))
+			{
+				result = bookingTransactionDao.updateAdminPassTransaction(adminEmail, userEmail, source, destination, validFrom, validThrough, passType, fare, paymentType.toUpperCase(), txnid, dateTime);
+			}
+			else if(paymentType.equalsIgnoreCase("card") && bookingType.equalsIgnoreCase("pass"))
+			{
+				result = bookingTransactionDao.updateAdminPassTransaction(adminEmail, userEmail, source, destination, validFrom, validThrough, passType, fare, paymentType.toUpperCase(), txnid, dateTime);
+			}
+			
 			//===FOR TICKET DATABASE UPDATE===//
 			if(result.equalsIgnoreCase("Successful") && bookingType.equalsIgnoreCase("ticket"))
 			{
@@ -90,6 +100,27 @@ public class AdminPaymentProcess extends HttpServlet {
 			{
 				request.setAttribute("Msg", "Something went wrong, Please try again..");
 				request.getRequestDispatcher("/admin-single-ticket.jsp").forward(request, response);
+			}
+			
+			//===FOR PASS DATABASE UPDATE===//
+			if(result.equalsIgnoreCase("Successful") && bookingType.equalsIgnoreCase("pass"))
+			{
+				//ON SUCCESS
+				request.setAttribute("Msg", "Pass Booked Successfully!");
+				session.setAttribute("dateTime", dateTime);
+				session.setAttribute("txnid", txnid);
+				request.getRequestDispatcher("/admin-pass-details.jsp").forward(request, response);
+			}
+			else if(result.equalsIgnoreCase("Unsuccessful") && bookingType.equalsIgnoreCase("pass"))
+			{
+				//ON FAILURE
+				request.setAttribute("Err", "Pass not Booked!");
+				request.getRequestDispatcher("/admin-book-pass.jsp").forward(request, response);
+			}
+			else if(result.equalsIgnoreCase("Something went wrong, Please try again..") && bookingType.equalsIgnoreCase("pass") )
+			{
+				request.setAttribute("Msg", "Something went wrong, Please try again..");
+				request.getRequestDispatcher("/admin-book-pass.jsp").forward(request, response);
 			}
 			
 		}

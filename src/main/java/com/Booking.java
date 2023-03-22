@@ -28,7 +28,6 @@ public class Booking extends HttpServlet {
 		log.trace("Getting type of booking");
 		String type = request.getParameter("type");
 		String userType = request.getParameter("user-type");
-		System.out.println(type + " " + userType);
 		
 		GetStationNamesDao getStationNamesDao = new GetStationNamesDao();
 		ArrayList<GetStationNamesBean> getStationNames = getStationNamesDao.getStationNames();

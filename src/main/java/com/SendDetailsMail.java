@@ -98,7 +98,11 @@ public class SendDetailsMail extends HttpServlet {
 		}
 		else if(type.equalsIgnoreCase("pass"))
 		{
-			result = sendEmail.sendPassDetailsToUser(name, email, source, destination, validFrom, validThrough, passType, fare, txnid, dateTime);
+			if(userType.equalsIgnoreCase("user"))
+				result = sendEmail.sendPassDetailsToUser(name, email, source, destination, validFrom, validThrough, passType, fare, txnid, dateTime);
+			else if(userType.equalsIgnoreCase("admin"))
+				result = sendEmail.sendPassFromAdminDetailsToUser(email, source, destination, validFrom, validThrough, passType, fare, txnid, dateTime);
+			
 			if(result.equalsIgnoreCase("Email Sent"))
 			{
 				session.removeAttribute("Source");
@@ -110,7 +114,16 @@ public class SendDetailsMail extends HttpServlet {
 				session.removeAttribute("txnid");
 				session.removeAttribute("dateTime");
 				session.removeAttribute("getStationNames");
-				response.sendRedirect("welcome.jsp");
+				
+				if(userType.equalsIgnoreCase("user"))
+				{
+					response.sendRedirect("welcome.jsp");
+				}
+				else if(userType.equalsIgnoreCase("admin"))
+				{
+					session.removeAttribute("UserEmail");
+					response.sendRedirect("admin-welcome.jsp");
+				}
 			}
 			else
 			{
