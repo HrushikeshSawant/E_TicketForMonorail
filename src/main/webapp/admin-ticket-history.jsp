@@ -14,10 +14,9 @@
 <body>
 	<%
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-		if(session.getAttribute("Name")==null){
+		if(session.getAttribute("Email")==null){
 			response.sendRedirect("admin-login.jsp");
 		}
-		String Name = (String) session.getAttribute("Name");
 	%>
 			<header>
 			<img src="<%=request.getContextPath()%>/resources/images/logo.png" class="logo"></img>

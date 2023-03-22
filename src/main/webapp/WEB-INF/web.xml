@@ -219,6 +219,13 @@
 		<servlet-name>PassBookingAdmin</servlet-name>
 		<servlet-class>com.PassBookingAdmin</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AdminPassHistory</display-name>
+		<servlet-name>AdminPassHistory</servlet-name>
+		<servlet-class>com.AdminPassHistory</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/Register</url-pattern>
@@ -338,5 +345,9 @@
 	<servlet-mapping>
 		<servlet-name>PassBookingAdmin</servlet-name>
 		<url-pattern>/PassBookingAdmin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminPassHistory</servlet-name>
+		<url-pattern>/AdminPassHistory</url-pattern>
 	</servlet-mapping>
 </web-app>
