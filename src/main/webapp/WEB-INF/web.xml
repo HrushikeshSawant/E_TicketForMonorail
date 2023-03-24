@@ -226,6 +226,13 @@
 		<servlet-name>AdminPassHistory</servlet-name>
 		<servlet-class>com.AdminPassHistory</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>MoveDeletedData</display-name>
+		<servlet-name>MoveDeletedData</servlet-name>
+		<servlet-class>com.MoveDeletedData</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/Register</url-pattern>
@@ -349,5 +356,9 @@
 	<servlet-mapping>
 		<servlet-name>AdminPassHistory</servlet-name>
 		<url-pattern>/AdminPassHistory</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MoveDeletedData</servlet-name>
+		<url-pattern>/MoveDeletedData</url-pattern>
 	</servlet-mapping>
 </web-app>
