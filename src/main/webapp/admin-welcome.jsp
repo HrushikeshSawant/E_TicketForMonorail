@@ -30,10 +30,6 @@
 			</nav>
 		</header>
 	<div class="container1">
-			
-			<div class="cont1">
-				<a href="MoveDeletedData"><i class="fas fa-database fa-3x"></i>Move Data</a>
-			</div>
 			<div class="cont1">
 				<a href="admin-booking.jsp"><i class="fas fa-ticket-alt fa-3x"></i>Booking</a>
 			</div>
@@ -45,7 +41,13 @@
 			</div>
 			<div class="cont1">
 				<a href="admin-history.jsp"><i class="fas fa-history fa-3x"></i>History</a>
-			</div>		
+			</div>	
+			<div class="cont1">
+				<a href="MoveDeletedData"><i class="fas fa-database fa-3x"></i>Move Data</a>
+			</div>	
+			<div class="cont1">
+				<a href="MoveDeletedData"><i class="fas fa-database fa-3x"></i>View Historic Data</a>
+			</div>	
 	</div>
 	<div class="container5">
 		<div class="content5">
