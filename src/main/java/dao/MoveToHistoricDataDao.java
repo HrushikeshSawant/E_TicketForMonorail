@@ -30,15 +30,25 @@ public class MoveToHistoricDataDao {
 				PreparedStatement ps6 = con.prepareStatement("DELETE pass_transaction FROM pass_transaction INNER JOIN users ON users.Email = pass_transaction.Email WHERE users.Status = 'Deleted'");
 				PreparedStatement ps7 = con.prepareStatement("DELETE FROM users WHERE Status = 'Deleted'");
 				
-				ps.executeUpdate();
-				ps1.executeUpdate();
-				ps2.executeUpdate();
-				ps3.executeUpdate();
-				ps4.executeUpdate();
-				ps5.executeUpdate();
-				ps6.executeUpdate();
-				ps7.executeUpdate();
+				int i = ps.executeUpdate();
+				int i1 = ps1.executeUpdate();
+				int i2 = ps2.executeUpdate();
+				int i3 = ps3.executeUpdate();
+				int i4 = ps4.executeUpdate();
+				int i5 = ps5.executeUpdate();
+				int i6 = ps6.executeUpdate();
+				int i7 = ps7.executeUpdate();
 				
+				System.out.println("i: " + i);
+				System.out.println("i1: " + i1);
+				System.out.println("i2: " + i2);
+				System.out.println("i3: " + i3);
+				System.out.println("i4: " + i4);
+				System.out.println("i5: " + i5);
+				System.out.println("i6: " + i6);
+				System.out.println("i7: " + i7);
+				
+				System.out.println("TRIED ROLLBACK SUCCESS");
 				con.commit();
 				con.setAutoCommit(true);
 				log.info("Transacrion Committed. Data moved successfully");
