@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import bean.LoginBean;
 import bean.PassHistoryBean;
 import bean.TicketHistoryBean;
@@ -20,14 +23,13 @@ import dao.TicketHistoryDao;
  */
 public class UserTransactionDetails extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static Logger log = LogManager.getLogger(UserTransactionDetails.class);
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession(false);
 		String email = request.getParameter("email");
 		String detailType = request.getParameter("type");
-		System.out.println(email);
-		System.out.println(detailType);
 		
 		LoginBean loginBean = new LoginBean(email);
 		

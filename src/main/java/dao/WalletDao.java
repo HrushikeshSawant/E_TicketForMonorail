@@ -158,5 +158,57 @@ public class WalletDao {
 		log.trace("Something went wrong, Please try again..");
 		return "Something went wrong, Please try again..";
 	}
+	
+	public ArrayList<WalletHistoryBean> getHistoricUserWalletHistory(LoginBean loginBean)
+	{
+		ArrayList<WalletHistoryBean> walletHistory = new ArrayList<WalletHistoryBean>();
+		try
+		{
+			String dateTime;
+			String modeofTransaction;
+			String amount;
+			String transactionId;
+			Connection con;
+			PreparedStatement ps;
+			ResultSet rs;
+			
+			con = DBConnection.DBCon();
+			int size = 0 ;
+			ps = con.prepareStatement("SELECT COUNT(*) FROM historic_users_data hud INNER JOIN historic_users_wallet_transaction_data huwtd ON hud.Email = huwtd.Email WHERE hud.Email = ?");
+			ps.setString(1, loginBean.getEmail());
+			rs = ps.executeQuery();
+			
+			while(rs.next()){
+				size = Integer.parseInt(rs.getString(1));
+			}
+			
+			WalletHistoryBean walletHistoryBean1 = new WalletHistoryBean(size);
+			walletHistory.add(0, walletHistoryBean1);
+			
+			ps = con.prepareStatement("SELECT huwtd.DateTime, huwtd.Mode_of_Transaction, huwtd.Amount, huwtd.Transaction_Id FROM historic_users_data hud INNER JOIN historic_users_wallet_transaction_data huwtd ON hud.Email = huwtd.Email WHERE hud.Email = ?");
+			ps.setString(1, loginBean.getEmail());
+			rs = ps.executeQuery();
+			
+			while(rs.next())
+			{
+				dateTime = rs.getString("DateTime");
+				modeofTransaction = rs.getString("Mode_of_Transaction");
+				amount = rs.getString("Amount");
+				transactionId = rs.getString("Transaction_Id");
+				WalletHistoryBean walletHistoryBean = new WalletHistoryBean(dateTime, modeofTransaction, amount, transactionId);
+				walletHistory.add(walletHistoryBean);
+			}
+			
+			return walletHistory;
+			
+		}
+		catch(Exception e)
+		{
+			e.getMessage();
+		}
+		
+		log.trace("Something went wrong, Please try again..");
+		return walletHistory;
+	}
 
 }

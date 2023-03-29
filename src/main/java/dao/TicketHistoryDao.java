@@ -134,4 +134,63 @@ public class TicketHistoryDao {
 		log.trace("Something went wrong, Please try again..");
 		return adminTicketHistory;
 	}
+	
+	public ArrayList<TicketHistoryBean> getHistoricUserTicketHistory(LoginBean loginBean)
+	{
+		ArrayList<TicketHistoryBean> ticketHistory = new ArrayList<TicketHistoryBean>();
+		try
+		{
+			String source;
+			String destination;
+			double passengersCount;
+			String modeofTransaction;
+			double fare;
+			String txnid;
+			String dateTime;
+			Connection con;
+			PreparedStatement ps;
+			ResultSet rs;
+			
+			con = DBConnection.DBCon();
+			int size = 0 ;
+			ps = con.prepareStatement("SELECT COUNT(*) FROM historic_users_data hud INNER JOIN historic_users_ticket_transaction hutt ON hud.Email = hutt.Email WHERE hud.Email = ?");
+			ps.setString(1, loginBean.getEmail());
+			rs = ps.executeQuery();
+			
+			while(rs.next()){
+				size = Integer.parseInt(rs.getString(1));
+			}
+			
+			TicketHistoryBean ticketHistoryBean1 = new TicketHistoryBean(size);
+			ticketHistory.add(0, ticketHistoryBean1);
+			
+			ps = con.prepareStatement("SELECT hutt.Source, hutt.Destination, hutt.Passengers_Count, hutt.Mode_of_Transaction, hutt.Fare, hutt.Transaction_Id, hutt.DateTime FROM historic_users_data hud INNER JOIN historic_users_ticket_transaction hutt ON hud.Email = hutt.Email WHERE hud.Email = ?");
+			ps.setString(1, loginBean.getEmail());
+			rs = ps.executeQuery();
+			
+			while(rs.next())
+			{
+				source = rs.getString("Source");
+				destination = rs.getString("Destination");
+				passengersCount = rs.getDouble("Passengers_Count");
+				modeofTransaction = rs.getString("Mode_of_Transaction");
+				fare = rs.getDouble("Fare");
+				txnid = rs.getString("Transaction_Id");
+				dateTime = rs.getString("DateTime");
+				TicketHistoryBean ticketHistoryBean = new TicketHistoryBean(source, destination, passengersCount, modeofTransaction, fare, txnid, dateTime);
+				ticketHistory.add(ticketHistoryBean);
+			}
+			
+			return ticketHistory;
+			
+		}
+		catch(Exception e)
+		{
+			e.getMessage();
+		}
+		
+		log.trace("Something went wrong, Please try again..");
+		return ticketHistory;
+	}
+	
 }

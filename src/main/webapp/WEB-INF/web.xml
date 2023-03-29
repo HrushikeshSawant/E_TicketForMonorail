@@ -233,6 +233,20 @@
 		<servlet-name>MoveDeletedData</servlet-name>
 		<servlet-class>com.MoveDeletedData</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ViewHistoricData</display-name>
+		<servlet-name>ViewHistoricData</servlet-name>
+		<servlet-class>com.ViewHistoricData</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>GetHistoricUserDetails</display-name>
+		<servlet-name>GetHistoricUserDetails</servlet-name>
+		<servlet-class>com.GetHistoricUserDetails</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/Register</url-pattern>
@@ -360,5 +374,13 @@
 	<servlet-mapping>
 		<servlet-name>MoveDeletedData</servlet-name>
 		<url-pattern>/MoveDeletedData</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ViewHistoricData</servlet-name>
+		<url-pattern>/ViewHistoricData</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetHistoricUserDetails</servlet-name>
+		<url-pattern>/GetHistoricUserDetails</url-pattern>
 	</servlet-mapping>
 </web-app>

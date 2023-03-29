@@ -8,6 +8,7 @@ public class UserBean {
 	private String password = "";
 	private String c_password = "";
 	private String h_password = "";
+	private int size;
 
 	public UserBean(String name, String email, String mobile_no, String password, String c_password, String h_password) {
 		super();
@@ -19,6 +20,17 @@ public class UserBean {
 		this.h_password = h_password;
 	}
 	
+	public UserBean(String name, String email) {
+		super();
+		this.name = name;
+		this.email = email;
+	}
+	
+	public UserBean(int size) {
+		super();
+		this.size = size;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -66,5 +78,8 @@ public class UserBean {
 	public void setH_password(String h_password) {
 		this.h_password = h_password;
 	}
-
+	
+	public int getSize() {
+		return size;
+	}
 }

@@ -142,4 +142,66 @@ private static Logger log = LogManager.getLogger(TicketHistoryDao.class);
 		log.trace("Something went wrong, Please try again..");
 		return adminPassHistory;
 	}
+	
+	public ArrayList<PassHistoryBean> getHistoricUserPassHistory(LoginBean loginBean)
+	{
+		ArrayList<PassHistoryBean> passHistory = new ArrayList<PassHistoryBean>();
+		try
+		{
+			String source;
+			String destination;
+			String validFrom;
+			String validThrough;
+			String passType;
+			String modeofTransaction;
+			double fare;
+			String txnid;
+			String dateTime;
+			Connection con;
+			PreparedStatement ps;
+			ResultSet rs;
+			
+			con = DBConnection.DBCon();
+			int size = 0 ;
+			ps = con.prepareStatement("SELECT COUNT(*) FROM historic_users_data hud INNER JOIN historic_users_pass_transaction hupt ON hud.Email = hupt.Email WHERE hud.Email = ?");
+			ps.setString(1, loginBean.getEmail());
+			rs = ps.executeQuery();
+			
+			while(rs.next()){
+				size = Integer.parseInt(rs.getString(1));
+			}
+			
+			PassHistoryBean passHistoryBean1 = new PassHistoryBean(size);
+			passHistory.add(0, passHistoryBean1);
+			
+			ps = con.prepareStatement("SELECT hupt.Source, hupt.Destination, hupt.Valid_From, hupt.Valid_Through, hupt.Pass_Type, hupt.Mode_of_Transaction, hupt.Fare, hupt.Transaction_Id, hupt.DateTime FROM historic_users_data hud INNER JOIN historic_users_pass_transaction hupt ON hud.Email = hupt.Email WHERE hud.Email = ?");
+			ps.setString(1, loginBean.getEmail());
+			rs = ps.executeQuery();
+			
+			while(rs.next())
+			{
+				source = rs.getString("Source");
+				destination = rs.getString("Destination");
+				validFrom = rs.getString("Valid_From");
+				validThrough = rs.getString("Valid_Through");
+				passType = rs.getString("Pass_Type");
+				modeofTransaction = rs.getString("Mode_of_Transaction");
+				fare = rs.getDouble("Fare");
+				txnid = rs.getString("Transaction_Id");
+				dateTime = rs.getString("DateTime");
+				PassHistoryBean passHistoryBean = new PassHistoryBean(source, destination, validFrom, validThrough, passType, modeofTransaction, fare, txnid, dateTime);
+				passHistory.add(passHistoryBean);
+			}
+			
+			return passHistory;
+			
+		}
+		catch(Exception e)
+		{
+			e.getMessage();
+		}
+		
+		log.trace("Something went wrong, Please try again..");
+		return passHistory;
+	}
 }
