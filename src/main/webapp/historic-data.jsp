@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' rel='stylesheet'>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/adminwelcome.css" type="text/css"/>
-<title>Admin</title>
+<title>Historic Data</title>
 <link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/images/logo.ico" />
 </head>
 <body>
@@ -18,7 +18,7 @@
 	%>
 	<header>
 			<img src="<%=request.getContextPath()%>/resources/images/logo.png" class="logo"></img>
-			<p class="welcome">WELCOME</p>
+			<p class="welcome">HISTORIC DATA</p>
 			<nav>
 				<div class="dropdown">
 					<i class="fas fa-user-secret"></i>&nbsp;&nbsp;${Name}
@@ -31,19 +31,10 @@
 		</header>
 	<div class="container1">
 			<div class="cont1">
-				<a href="admin-booking.jsp"><i class="fas fa-ticket-alt fa-3x"></i>Booking</a>
-			</div>
+				<a href="MoveDeletedData"><i class="fas fa-database fa-3x"></i>Move Data</a>
+			</div>	
 			<div class="cont1">
-				<a href="GetUserDetails"><i class="fas fa-users fa-3x"></i>User Details</a>
-			</div>
-			<div class="cont1">
-				<a href="UserAction"><i class="fas fa-users-cog fa-3x"></i>User Actions</a>
-			</div>
-			<div class="cont1">
-				<a href="admin-history.jsp"><i class="fas fa-history fa-3x"></i>History</a>
-			</div>
-			<div class="cont1">
-				<a href="historic-data.jsp"><i class="fas fa-history fa-3x"></i>Historic Data</a>
+				<a href="ViewHistoricData"><i class="fas fa-database fa-3x"></i>View Data</a>
 			</div>	
 	</div>
 	<div class="container5">
