@@ -26,7 +26,7 @@
 					<div class="bar">
 						<p class="blank"></p>
 						<a href="welcome.jsp">Home</a>
-						<a href="Logout">Logout</a>rnote
+						<a href="Logout?user=user">Logout</a>rnote
 					</div>
 				</div>
 			</nav>

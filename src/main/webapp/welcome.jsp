@@ -25,7 +25,7 @@
 					<div class="bar">
 						<p class="blank"></p>
 						<a onclick="document.getElementById('id01').style.display='block'; document.getElementById('container1').style.display='none'; document.getElementById('footer').style.display='none';">Delete Account</a>
-						<a href="Logout">Logout</a>
+						<a href="Logout?user=user">Logout</a>
 					</div>
 				</div>
 			</nav>

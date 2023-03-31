@@ -29,7 +29,7 @@
 					<div class="bar">
 						<p class="blank"></p>
 						<a href="admin-welcome.jsp">Home</a>
-						<a href="Logout">Logout</a>
+						<a href="Logout?user=admin">Logout</a>
 					</div>
 				</div>
 			</nav>

@@ -1,0 +1,344 @@
+CREATE SCHEMA e_ticketformonorail;
+
+//===USERS REGISTRATION===/
+CREATE TABLE users(
+	Id int NOT NULL UNIQUE AUTO_INCREMENT,
+    Name VARCHAR(40) NOT NULL,
+    Email VARCHAR(40) NOT NULL,
+    Mobile_No VARCHAR(40) UNIQUE NOT NULL,
+    Password VARCHAR(40) NOT NULL,
+    Wallet VARCHAR(40) NOT NULL,
+    Status VARCHAR(40) NOT NULL,
+    PRIMARY KEY (Email)
+);
+
+//===WALLET TRANSACTION===//
+CREATE TABLE wallet_transaction(
+	Id int NOT NULL UNIQUE AUTO_INCREMENT,
+    Email VARCHAR(40) NOT NULL,
+    Amount VARCHAR(40) NOT NULL,
+    Mode_of_Transaction VARCHAR(40) NOT NULL,
+    Transaction_Id VARCHAR(40) NOT NULL,
+    DateTime VARCHAR(40) NOT NULL,
+    PRIMARY KEY (Id),
+    FOREIGN KEY (Email) REFERENCES users(Email)
+);
+
+//===STATION NAMES===//
+CREATE TABLE station_name(
+	Id int NOT NULL UNIQUE AUTO_INCREMENT,
+    Stations VARCHAR(45) NOT NULL
+);
+
+INSERT INTO station_name (Stations) VALUES ('CHEMBUR');
+INSERT INTO station_name (Stations) VALUES ('VNP MARG JUNCTION');
+INSERT INTO station_name (Stations) VALUES ('FERTILISER TOWNSHIP');
+INSERT INTO station_name (Stations) VALUES ('BHARAT PETROLEUM');
+INSERT INTO station_name (Stations) VALUES ('MYSORE COLONY');
+INSERT INTO station_name (Stations) VALUES ('BHAKTI PARK');
+INSERT INTO station_name (Stations) VALUES ('WADALA');
+INSERT INTO station_name (Stations) VALUES ('GTB NAGAR');
+INSERT INTO station_name (Stations) VALUES ('ANTOP HILL');
+INSERT INTO station_name (Stations) VALUES ('ACHARYA ATRE NAGAR');
+INSERT INTO station_name (Stations) VALUES ('WADALA BRIDGE');
+INSERT INTO station_name (Stations) VALUES ('DADAR EAST');
+INSERT INTO station_name (Stations) VALUES ('NAIGAON');
+INSERT INTO station_name (Stations) VALUES ('AMBEDKAR NAGAR');
+INSERT INTO station_name (Stations) VALUES ('MINT COLONY');
+INSERT INTO station_name (Stations) VALUES ('LOWER PAREL');
+INSERT INTO station_name (Stations) VALUES ('SANT GADGE MAHARAJ CHOWK');
+
+//===STATION FARE===//
+CREATE TABLE station_fare(
+	Id int NOT NULL UNIQUE AUTO_INCREMENT,
+    Source VARCHAR(45) NOT NULL,
+    Destination VARCHAR(45) NOT NULL,
+    Price VARCHAR(45) NOT NULL,
+    PRIMARY KEY(Id)
+);
+
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('CHEMBUR', 'VNP MARG JUNCTION', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('CHEMBUR', 'FERTILISER TOWNSHIP', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('CHEMBUR', 'BHARAT PETROLEUM', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('CHEMBUR', 'MYSORE COLONY', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('CHEMBUR', 'BHAKTI PARK', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('CHEMBUR', 'WADALA', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('CHEMBUR', 'GTB NAGAR', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('CHEMBUR', 'ANTOP HILL', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('CHEMBUR', 'ACHARYA ATRE NAGAR', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('CHEMBUR', 'WADALA BRIDGE', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('CHEMBUR', 'DADAR EAST', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('CHEMBUR', 'NAIGAON', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('CHEMBUR', 'AMBEDKAR NAGAR', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('CHEMBUR', 'MINT COLONY', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('CHEMBUR', 'LOWER PAREL', '40');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('CHEMBUR', 'SANT GADGE MAHARAJ CHOWK', '40');
+
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('VNP MARG JUNCTION', 'FERTILISER TOWNSHIP', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('VNP MARG JUNCTION', 'BHARAT PETROLEUM', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('VNP MARG JUNCTION', 'MYSORE COLONY', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('VNP MARG JUNCTION', 'BHAKTI PARK', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('VNP MARG JUNCTION', 'WADALA', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('VNP MARG JUNCTION', 'GTB NAGAR', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('VNP MARG JUNCTION', 'ANTOP HILL', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('VNP MARG JUNCTION', 'ACHARYA ATRE NAGAR', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('VNP MARG JUNCTION', 'WADALA BRIDGE', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('VNP MARG JUNCTION', 'DADAR EAST', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('VNP MARG JUNCTION', 'NAIGAON', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('VNP MARG JUNCTION', 'AMBEDKAR NAGAR', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('VNP MARG JUNCTION', 'MINT COLONY', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('VNP MARG JUNCTION', 'LOWER PAREL', '40');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('VNP MARG JUNCTION', 'SANT GADGE MAHARAJ CHOWK', '40');
+
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('FERTILISER TOWNSHIP', 'BHARAT PETROLEUM', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('FERTILISER TOWNSHIP', 'MYSORE COLONY', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('FERTILISER TOWNSHIP', 'BHAKTI PARK', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('FERTILISER TOWNSHIP', 'WADALA', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('FERTILISER TOWNSHIP', 'GTB NAGAR', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('FERTILISER TOWNSHIP', 'ANTOP HILL', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('FERTILISER TOWNSHIP', 'ACHARYA ATRE NAGAR', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('FERTILISER TOWNSHIP', 'WADALA BRIDGE', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('FERTILISER TOWNSHIP', 'DADAR EAST', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('FERTILISER TOWNSHIP', 'NAIGAON', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('FERTILISER TOWNSHIP', 'AMBEDKAR NAGAR', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('FERTILISER TOWNSHIP', 'MINT COLONY', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('FERTILISER TOWNSHIP', 'LOWER PAREL', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('FERTILISER TOWNSHIP', 'SANT GADGE MAHARAJ CHOWK', '40');
+
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHARAT PETROLEUM', 'MYSORE COLONY', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHARAT PETROLEUM', 'BHAKTI PARK', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHARAT PETROLEUM', 'WADALA', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHARAT PETROLEUM', 'GTB NAGAR', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHARAT PETROLEUM', 'ANTOP HILL', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHARAT PETROLEUM', 'ACHARYA ATRE NAGAR', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHARAT PETROLEUM', 'WADALA BRIDGE', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHARAT PETROLEUM', 'DADAR EAST', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHARAT PETROLEUM', 'NAIGAON', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHARAT PETROLEUM', 'AMBEDKAR NAGAR', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHARAT PETROLEUM', 'MINT COLONY', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHARAT PETROLEUM', 'LOWER PAREL', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHARAT PETROLEUM', 'SANT GADGE MAHARAJ CHOWK', '30');
+
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('MYSORE COLONY', 'BHAKTI PARK', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('MYSORE COLONY', 'WADALA', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('MYSORE COLONY', 'GTB NAGAR', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('MYSORE COLONY', 'ANTOP HILL', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('MYSORE COLONY', 'ACHARYA ATRE NAGAR', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('MYSORE COLONY', 'WADALA BRIDGE', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('MYSORE COLONY', 'DADAR EAST', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('MYSORE COLONY', 'NAIGAON', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('MYSORE COLONY', 'AMBEDKAR NAGAR', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('MYSORE COLONY', 'MINT COLONY', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('MYSORE COLONY', 'LOWER PAREL', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('MYSORE COLONY', 'SANT GADGE MAHARAJ CHOWK', '30');
+
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHAKTI PARK', 'WADALA', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHAKTI PARK', 'GTB NAGAR', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHAKTI PARK', 'ANTOP HILL', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHAKTI PARK', 'ACHARYA ATRE NAGAR', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHAKTI PARK', 'WADALA BRIDGE', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHAKTI PARK', 'DADAR EAST', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHAKTI PARK', 'NAIGAON', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHAKTI PARK', 'AMBEDKAR NAGAR', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHAKTI PARK', 'MINT COLONY', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHAKTI PARK', 'LOWER PAREL', '30');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('BHAKTI PARK', 'SANT GADGE MAHARAJ CHOWK', '30');
+
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('WADALA', 'GTB NAGAR', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('WADALA', 'ANTOP HILL', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('WADALA', 'ACHARYA ATRE NAGAR', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('WADALA', 'WADALA BRIDGE', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('WADALA', 'DADAR EAST', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('WADALA', 'NAIGAON', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('WADALA', 'AMBEDKAR NAGAR', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('WADALA', 'MINT COLONY', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('WADALA', 'LOWER PAREL', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('WADALA', 'SANT GADGE MAHARAJ CHOWK', '20');
+
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('GTB NAGAR', 'ANTOP HILL', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('GTB NAGAR', 'ACHARYA ATRE NAGAR', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('GTB NAGAR', 'WADALA BRIDGE', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('GTB NAGAR', 'DADAR EAST', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('GTB NAGAR', 'NAIGAON', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('GTB NAGAR', 'AMBEDKAR NAGAR', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('GTB NAGAR', 'MINT COLONY', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('GTB NAGAR', 'LOWER PAREL', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('GTB NAGAR', 'SANT GADGE MAHARAJ CHOWK', '20');
+
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('ANTOP HILL', 'ACHARYA ATRE NAGAR', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('ANTOP HILL', 'WADALA BRIDGE', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('ANTOP HILL', 'DADAR EAST', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('ANTOP HILL', 'NAIGAON', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('ANTOP HILL', 'AMBEDKAR NAGAR', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('ANTOP HILL', 'MINT COLONY', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('ANTOP HILL', 'LOWER PAREL', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('ANTOP HILL', 'SANT GADGE MAHARAJ CHOWK', '20');
+
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('ACHARYA ATRE NAGAR', 'WADALA BRIDGE', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('ACHARYA ATRE NAGAR', 'DADAR EAST', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('ACHARYA ATRE NAGAR', 'NAIGAON', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('ACHARYA ATRE NAGAR', 'AMBEDKAR NAGAR', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('ACHARYA ATRE NAGAR', 'MINT COLONY', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('ACHARYA ATRE NAGAR', 'LOWER PAREL', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('ACHARYA ATRE NAGAR', 'SANT GADGE MAHARAJ CHOWK', '20');
+
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('WADALA BRIDGE', 'DADAR EAST', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('WADALA BRIDGE', 'NAIGAON', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('WADALA BRIDGE', 'AMBEDKAR NAGAR', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('WADALA BRIDGE', 'MINT COLONY', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('WADALA BRIDGE', 'LOWER PAREL', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('WADALA BRIDGE', 'SANT GADGE MAHARAJ CHOWK', '20');
+
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('DADAR EAST', 'NAIGAON', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('DADAR EAST', 'AMBEDKAR NAGAR', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('DADAR EAST', 'MINT COLONY', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('DADAR EAST', 'LOWER PAREL', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('DADAR EAST', 'SANT GADGE MAHARAJ CHOWK', '20');
+
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('NAIGAON', 'AMBEDKAR NAGAR', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('NAIGAON', 'MINT COLONY', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('NAIGAON', 'LOWER PAREL', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('NAIGAON', 'SANT GADGE MAHARAJ CHOWK', '20');
+
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('AMBEDKAR NAGAR', 'MINT COLONY', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('AMBEDKAR NAGAR', 'LOWER PAREL', '20');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('AMBEDKAR NAGAR', 'SANT GADGE MAHARAJ CHOWK', '20');
+
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('MINT COLONY', 'LOWER PAREL', '10');
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('MINT COLONY', 'SANT GADGE MAHARAJ CHOWK', '20');
+
+INSERT INTO station_fare (Source, Destination, Price) VALUES ('LOWER PAREL', 'SANT GADGE MAHARAJ CHOWK', '10');
+
+//===TICKET TRANSACTION===//
+CREATE TABLE ticket_transaction(
+	Id int NOT NULL UNIQUE AUTO_INCREMENT,
+	Email VARCHAR(40) NOT NULL,
+    Source VARCHAR(45) NOT NULL,
+    Destination VARCHAR(45) NOT NULL,
+    Passengers_Count VARCHAR(20),
+    Fare VARCHAR(40) NOT NULL,
+    Mode_of_Transaction VARCHAR(40) NOT NULL,
+    Transaction_Id VARCHAR(40) NOT NULL,
+    DateTime VARCHAR(40) NOT NULL,
+    PRIMARY KEY(Id),
+    FOREIGN KEY(Email) REFERENCES users(Email)
+);
+
+//===PASS TRANSACTION===//
+CREATE TABLE pass_transaction(
+	Id int NOT NULL UNIQUE AUTO_INCREMENT,
+	Email VARCHAR(40) NOT NULL,
+    Source VARCHAR(45) NOT NULL,
+    Destination VARCHAR(45) NOT NULL,
+    Valid_From VARCHAR(20),
+    Valid_Through VARCHAR(20),
+    Pass_Type VARCHAR(20),
+    Fare VARCHAR(40) NOT NULL,
+    Mode_of_Transaction VARCHAR(40) NOT NULL,
+    Transaction_Id VARCHAR(40) NOT NULL,
+    DateTime VARCHAR(40) NOT NULL,
+    PRIMARY KEY(Id),
+    FOREIGN KEY(Email) REFERENCES users(Email)
+);
+
+//===ADMIN USERS===//
+CREATE TABLE admins(
+	Id int NOT NULL UNIQUE AUTO_INCREMENT,
+    Name VARCHAR(40) NOT NULL,
+    Email VARCHAR(40) NOT NULL,
+    Password VARCHAR(40) NOT NULL,
+    PRIMARY KEY (Email)
+);
+
+INSERT INTO admins (Name, Email, Password) VALUES ('Admin1', 'admin1@monorail.com', 'cfcba5cc60e6cdd1f39322c75d8833b7');
+INSERT INTO admins (Name, Email, Password) VALUES ('Admin2', 'admin2@monorail.com', 'd5d2d2375162ef7cae848545a5c64525');
+INSERT INTO admins (Name, Email, Password) VALUES ('Admin3', 'admin3@monorail.com', 'bc1c6e92f301dd36843c8987f5440f30');
+INSERT INTO admins (Name, Email, Password) VALUES ('Admin4', 'admin4@monorail.com', 'f4e6ed03498a01d4bdf44d0e220d693b');
+INSERT INTO admins (Name, Email, Password) VALUES ('Admin5', 'admin5@monorail.com', 'bd366b70157e7df47df8f3ec0433761a');
+
+//===ADMIN TICKET TRANSACTION===//
+CREATE TABLE admin_ticket_transaction(
+	Id int NOT NULL UNIQUE AUTO_INCREMENT,
+    Email VARCHAR(40) NOT NULL,
+	User_Email VARCHAR(40) NOT NULL,
+    Source VARCHAR(45) NOT NULL,
+    Destination VARCHAR(45) NOT NULL,
+    Passengers_Count VARCHAR(20),
+    Fare VARCHAR(40) NOT NULL,
+    Mode_of_Transaction VARCHAR(40) NOT NULL,
+    Transaction_Id VARCHAR(40) NOT NULL,
+    DateTime VARCHAR(40) NOT NULL,
+    PRIMARY KEY(Id),
+    FOREIGN KEY(Email) REFERENCES admins(Email)
+);
+
+//===ADMIN PASS TRANSACTION===//
+CREATE TABLE admin_pass_transaction(
+	Id int NOT NULL UNIQUE AUTO_INCREMENT,
+	Email VARCHAR(40) NOT NULL,
+    User_Email VARCHAR(40) NOT NULL,
+    Source VARCHAR(45) NOT NULL,
+    Destination VARCHAR(45) NOT NULL,
+    Valid_From VARCHAR(20),
+    Valid_Through VARCHAR(20),
+    Pass_Type VARCHAR(20),
+    Fare VARCHAR(40) NOT NULL,
+    Mode_of_Transaction VARCHAR(40) NOT NULL,
+    Transaction_Id VARCHAR(40) NOT NULL,
+    DateTime VARCHAR(40) NOT NULL,
+    PRIMARY KEY(Id),
+    FOREIGN KEY(Email) REFERENCES admins(Email)
+);
+
+//===HISTORIC USERS===//
+CREATE TABLE historic_users_data(
+	Id int NOT NULL UNIQUE AUTO_INCREMENT,
+    Name VARCHAR(40) NOT NULL,
+    Email VARCHAR(40) NOT NULL,
+    Mobile_No VARCHAR(40) UNIQUE NOT NULL,
+    PRIMARY KEY (Email)
+);
+
+//===HISTORIC USERS WALLET TRANSACTION===//
+CREATE TABLE historic_users_wallet_transaction_data(
+	Id int NOT NULL UNIQUE AUTO_INCREMENT,
+    Email VARCHAR(40) NOT NULL,
+    Amount VARCHAR(40) NOT NULL,
+    Mode_of_Transaction VARCHAR(40) NOT NULL,
+    Transaction_Id VARCHAR(40) NOT NULL,
+    DateTime VARCHAR(40) NOT NULL,
+    PRIMARY KEY (Id),
+    FOREIGN KEY (Email) REFERENCES historic_users_data(Email)
+);
+
+//===HISTORIC USERS TICKET TRANSACTION===//
+CREATE TABLE historic_users_ticket_transaction(
+	Id int NOT NULL UNIQUE AUTO_INCREMENT,
+	Email VARCHAR(40) NOT NULL,
+    Source VARCHAR(45) NOT NULL,
+    Destination VARCHAR(45) NOT NULL,
+    Passengers_Count VARCHAR(20),
+    Fare VARCHAR(40) NOT NULL,
+    Mode_of_Transaction VARCHAR(40) NOT NULL,
+    Transaction_Id VARCHAR(40) NOT NULL,
+    DateTime VARCHAR(40) NOT NULL,
+    PRIMARY KEY(Id),
+    FOREIGN KEY(Email) REFERENCES historic_users_data(Email)
+);
+
+//===HISTORIC USERS PASS TRANSACTION===//
+CREATE TABLE historic_users_pass_transaction(
+	Id int NOT NULL UNIQUE AUTO_INCREMENT,
+	Email VARCHAR(40) NOT NULL,
+    Source VARCHAR(45) NOT NULL,
+    Destination VARCHAR(45) NOT NULL,
+    Valid_From VARCHAR(20),
+    Valid_Through VARCHAR(20),
+    Pass_Type VARCHAR(20),
+    Fare VARCHAR(40) NOT NULL,
+    Mode_of_Transaction VARCHAR(40) NOT NULL,
+    Transaction_Id VARCHAR(40) NOT NULL,
+    DateTime VARCHAR(40) NOT NULL,
+    PRIMARY KEY(Id),
+    FOREIGN KEY(Email) REFERENCES historic_users_data(Email)
+);

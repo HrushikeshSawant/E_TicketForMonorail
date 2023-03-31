@@ -24,7 +24,7 @@
 					<i class="fas fa-user-secret"></i>&nbsp;&nbsp;${Name}
 					<div class="bar">
 						<p class="blank"></p>
-						<a href="Logout">Logout</a>
+						<a href="Logout?user=admin">Logout</a>
 					</div>
 				</div>
 			</nav>

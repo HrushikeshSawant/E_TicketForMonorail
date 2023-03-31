@@ -17,6 +17,8 @@ public class Logout extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
+		String user = request.getParameter("user");
+		System.out.println("user: " + user);
 		session.removeAttribute("Email");
 		session.removeAttribute("Name");
 		session.removeAttribute("Wallet");
@@ -33,8 +35,13 @@ public class Logout extends HttpServlet {
 		session.removeAttribute("dateTime");
 		session.invalidate();
 		request.setAttribute("Message", "Successfully Logout.");
-		request.getRequestDispatcher("/login.jsp").forward(request, response);
-		
+		if(user.equalsIgnoreCase("admin"))
+		{
+			request.getRequestDispatcher("/admin-login.jsp").forward(request, response);
+		}
+		else
+		{
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
+		}
 	}
-
 }

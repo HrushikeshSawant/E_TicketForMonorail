@@ -26,7 +26,7 @@
 						<p class="blank"></p>
 						<a href="welcome.jsp">Home</a>
 						<a href="booking.jsp">Booking</a>
-						<a href="Logout">Logout</a>
+						<a href="Logout?user=user">Logout</a>
 					</div>
 				</div>
 			</nav>
